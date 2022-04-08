@@ -1,0 +1,39 @@
+configuration {
+  modi: "drun,window,filebrowser";
+  font: "Jetbrains Mono 12";
+
+	show-icons: true;
+	icon-theme: "Papirus";
+
+  hover-select: true;  
+	
+  sort: true;
+	sorting-method: "normal";
+	
+  case-sensitive: false;
+	
+  cycle: false;
+	
+  sidebar-mode: true;
+	
+  display-window: "Active Apps";
+
+	display-drun: "Applications";
+
+	display-filebrowser: "File Browsers";
+
+	kb-mode-next: "Tab";
+	kb-mode-previous: "Alt+Tab";
+	kb-row-tab: "";
+
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+
+@theme "~/.config/rofi/src/drun.rasi"

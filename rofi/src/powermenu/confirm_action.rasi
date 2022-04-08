@@ -1,0 +1,50 @@
+@import "/home/haln/.config/rofi/src/color/color.rasi"
+
+
+*{
+    background-color: @background;
+    text-color: @foreground;
+}
+
+configuration {
+    click-to-exit: false;
+}
+
+window {
+    font: "JetBrains Mono 10";
+    background-color: @background;
+    width: 17ch;
+    height: 3.3em;
+    location: center;
+    y-offset: 0;
+    x-offset: 0;
+    border: 1px solid;
+    border-radius: 10;
+    border-color: @alert;
+    padding: 5px 5px 5px 5px;
+}
+
+mainbox {
+    padding: 10px;
+}
+
+inputbar {
+    children:   [ prompt, entry ];
+    orientation: vertical;
+    horizontal-align: 0.5;
+}
+
+prompt {
+    text-color: @alert;
+    background-color: @background;
+    horizontal-align: 0.5;
+}
+
+entry {
+    text-color: @primary;
+    expand: true;
+    vertical-align: 1.0;
+}
+
+
+
