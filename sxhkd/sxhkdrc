@@ -7,7 +7,7 @@ super + Return
 	alacritty
 
 # program launcher
-XF86LaunchB
+Menu
 	rofi -show
 
 # make sxhkd reload its configuration files:
@@ -30,35 +30,21 @@ XF86AudioPrev
 	playerctl --player=spotify previous
 XF86AudioPlay
 	playerctl --player=spotify play-pause
-#=================AUDIO CONTROL ENDS=================
-#
-#===========BRIGHTNESS CONTROL===========
-XF86KbdBrightnessDown
-	$HOME/.config/scripts/kbdlight_control/kbdlight_control.sh down
-XF86KbdBrightnessUp
-	$HOME/.config/scripts/kbdlight_control/kbdlight_control.sh up
+#=================AUDIO CONTROL ENDS=======================
 
-XF86MonBrightnessDown
-	$HOME/.config/scripts/brightness_control/brightness.sh down
-XF86MonBrightnessUp	
-	$HOME/.config/scripts/brightness_control/brightness.sh up
-
-#=========BRIGHTNESS CONTROL ENDS========
-
-#====POWER CONTROL====
-super + XF86Eject
+# Power control
+super + Pause
 	$HOME/.config/scripts/power_options/powermenu.sh
-XF86Eject
+Pause
 	$HOME/.config/scripts/power_options/lockscreen.sh
-#====POWER CONTROL ENDS====
-
-
 
 # quit/restart bspwm
 super + shift + {q,r}
 	bspc {quit,wm -r}
+
 #super + shift + r
 #	$HOME/.config/scripts/polybar_launcher.sh
+
 
 # close and kill
 super + Escape
@@ -101,7 +87,7 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }Tab
+super + {_,shift + }c
 	bspc node -f {next,prev}.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
@@ -109,8 +95,8 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-#super + {grave,Tab}
-#	bspc {node,desktop} -f last
+super + {grave,Tab}
+	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}

@@ -7,8 +7,8 @@
 killall -q polybar
 
 # Launch bar1 and bar2
-polybar main_topleft & > /dev/null
-polybar main_topcenter & > /dev/null
-polybar main_topright & > /dev/null
-polybar side_topcenter & > /dev/null
-#polybar powermenu &
+polybar main_topleft &
+polybar main_topcenter &
+polybar main_topright &
+polybar side_topcenter &
+polybar side_bottomleft &

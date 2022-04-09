@@ -6,15 +6,21 @@
 DIR="$HOME/.config/rofi/src/powermenu"
 SCRIPTS="$HOME/.config/scripts/power_options"
 
-ICON_LOCK=""
+ICON_LOGOUT=""
 ICON_SLEEP=""
 ICON_SHUTDOWN=""
-ICON_REBOOT=""
+ICON_REBOOT=""
 
-OPTIONS="${ICON_LOCK}|${ICON_SLEEP}|${ICON_REBOOT}|${ICON_SHUTDOWN}"
+LOCK="$ICON_LOGOUT Lock"
+SLEEP="$ICON_SLEEP Sleep"
+SHUTDOWN="$ICON_SHUTDOWN Shutdown"
+
+ICON_YES=""
+
+OPTIONS="${ICON_LOGOUT}|${ICON_SLEEP}|${ICON_REBOOT}|${ICON_SHUTDOWN}"
 
 
-# Calling Rofi
+# Defining Functions
 power_menu () {
 	echo $OPTIONS | \
 		rofi \
@@ -25,31 +31,43 @@ power_menu () {
 		-me-accept-entry MousePrimary
 }
 
-# Confirming messages
+
 confirm_action () {
-	rofi -dmenu -p "${1}? (Y/n)" -theme $DIR/confirm_action.rasi
+	echo "Yes|No" | rofi \
+		-dmenu \
+		-sep "|" \
+		-theme $DIR/confirm.rasi \
+		-me-select-entry '' \
+		-me-accpet-entry MousePrimary \
+		-p "${1} now?"
 }
 
-# Lock
-system_lock () {
-	sleep 0.1 && $SCRIPTS/lockscreen.sh
-}
 
-# Suspend
-system_sleep () {
-	ans=$(confirm_action Suspend)
-	if [ $ans == "y" ] || [ $ans == "yes" ] || [ $ans == "Y" ] || [ $ans == "Yes" ]
-	then
-		system_lock && systemctl suspend
+system_logout () {
+	ans=$(confirm_action "Logout")
+	if [ $ans == "Yes" ];then
+		bspc quit
 	else
 		exit 0
 	fi
 }
 
-# Shutdown
+
+
+system_sleep () {
+	ans=$(confirm_action "Suspend")
+	if [ $ans == "Yes" ]
+	then
+		$SCRIPTS/lockscreen.sh && systemctl suspend
+	else
+		exit 0
+	fi
+}
+
+
 system_shutdown () {
 	ans=$(confirm_action "Shutdown")
-	if [ $ans == "y" ] || [ $ans == "yes" ] || [ $ans == "Y" ] || [ $ans == "Yes" ]
+	if [ $ans == "Yes" ]
 	then
 		systemctl poweroff
 	else
@@ -57,21 +75,21 @@ system_shutdown () {
 	fi
 }
 
-# Restart
+
 system_reboot () {
-	ans=$(confirm_action Reboot)
-	if [ $ans == "y" ] || [ $ans == "yes" ] || [ $ans == "Y" ] || [ $ans == "Yes" ];then
-		systemctl reboot
+	ans=$(confirm_action "Reboot")
+	if [ $ans == "Yes" ]
+	then
+		reboot
 	else
 		exit 0
 	fi
 }
 
-
 # Case
 case $(power_menu) in 
-	$ICON_LOCK)
-		system_lock
+	$ICON_LOGOUT)
+		system_logout
 		;;
 	$ICON_SLEEP)
 		system_sleep
@@ -82,4 +100,7 @@ case $(power_menu) in
 	$ICON_REBOOT)
 		system_reboot
 		;;
+	*) 
+		exit 0
+		;;	
 esac

@@ -1,0 +1,9 @@
+* {
+    primary: #547C8C;
+    background: #0D1826;
+    foreground: #254559;
+    alert: #D9843Bb3;
+
+    text-font: "Fira Mono 12";
+}
+

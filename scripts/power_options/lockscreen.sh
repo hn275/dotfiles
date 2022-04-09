@@ -11,7 +11,7 @@ FONT="JetBrains Mono"
 
 
 i3lock \
-	--blur=sigma                       \
+	--blur = sigma                     \
 	--ignore-empty-password            \
 	--clock                            \
 	--indicator                        \
