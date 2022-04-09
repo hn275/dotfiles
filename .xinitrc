@@ -48,29 +48,30 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# xmodmap, customize bindking keys, since XF86Audio keys arent registered
-#[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+# Fixing issues for github and vscode
 
-# Start pulseaudioservice
-#systemctl --user start pulseaudio.service
 
-# Cursor theme
-xsetroot -cursor_name left_ptr & 
 
-# Start nitrogen
-nitrogen --restore & 
+# Set cursor
+xsetroot -cursor_name left_ptr &
+
+# Screen layout
+$HOME/.screenlayout/display.sh > /dev/null
+
+# Pulse audio
+systemctl --user start pulseaudio.service &
 
 # Picom
-picom --experimental-backends &
-
-# Dimmed display and light up kbd
-$HOME/.config/scripts/startups/dim_light/dimmed.sh
-
-# Redshift
-redshift -c $HOME/.config/redshift/redshift.conf &
+picom --experimental-backends & > /dev/null
 
 # Polybar
-$HOME/.config/scripts/polybar_launcher.sh 
+sleep 1 && $HOME/.config/scripts/polybar_launcher.sh & > /dev/null
+
+# Nitrogen
+nitrogen --restore &
+
+# Set Resouces 
+xrdb ~/.Xresources &
 
 # BSPWM
 exec bspwm
