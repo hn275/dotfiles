@@ -1,12 +1,12 @@
 # Import colors
 import:
-  - ~/.config/alacritty/alacritty-theme/themes/material_theme_mod.yaml
+  - ~/.config/alacritty/themes/dracula.yaml
 
 # Window configurations
 window:
   padding:
-    x: 20
-    y: 20
+    x: 13
+    y: 17
   decoration: none
   opacity: 0.9
   title: Terminal
