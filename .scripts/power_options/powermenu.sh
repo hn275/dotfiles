@@ -38,7 +38,7 @@ confirm_action () {
 		-sep "|" \
 		-theme $DIR/confirm.rasi \
 		-me-select-entry '' \
-		-me-accpet-entry MousePrimary \
+		-me-accept-entry MousePrimary \
 		-p "${1} now?"
 }
 

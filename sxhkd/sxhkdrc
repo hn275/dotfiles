@@ -19,11 +19,11 @@ super + alt + r
 
 #====================AUDIO CONTROL=========================
 XF86AudioRaiseVolume
-	$HOME/.config/scripts/volume_control.sh up
+	$HOME/.scripts/volume_control.sh up
 XF86AudioLowerVolume
-	$HOME/.config/scripts/volume_control.sh down
+	$HOME/.scripts/volume_control.sh down
 XF86AudioMute
-	$HOME/.config/scripts/volume_control.sh mute
+	$HOME/.scripts/volume_control.sh mute
 XF86AudioNext
 	playerctl --player=spotify next
 XF86AudioPrev
@@ -34,16 +34,13 @@ XF86AudioPlay
 
 # Power control
 super + Pause
-	$HOME/.config/scripts/power_options/powermenu.sh
+	$HOME/.scripts/power_options/powermenu.sh
 Pause
-	$HOME/.config/scripts/power_options/lockscreen.sh
+	$HOME/.scripts/power_options/lockscreen.sh
 
 # quit/restart bspwm
 super + shift + {q,r}
 	bspc {quit,wm -r}
-
-#super + shift + r
-#	$HOME/.config/scripts/polybar_launcher.sh
 
 
 # close and kill
