@@ -1,9 +1,9 @@
 #! /usr/bin/env bash
 
 dmenu_run \
-	-l 15			\
 	-m 0 			\
-	-p 'command'		\
+	-b			\
+	-p 'cmd'		\
 	-fn 'JetBrains Mono'	\
 	-nb \#0D1826		\
 	-nf \#C5C8C6		\
