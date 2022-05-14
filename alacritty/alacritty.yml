@@ -1,0 +1,36 @@
+# Import colors
+import:
+  - ~/.config/alacritty/alacritty-theme/themes/iterm.yaml
+
+# Window configurations
+window:
+  padding:
+    x: 0
+    y: 0
+  decoration: none
+  opacity: 1
+  title: Terminal
+  dynamic_title: true
+  class:
+    instance: Alacritty
+    general: Alacritty
+  gtk_theme_variant: dark
+  startup_mode: Windowed 
+scrolling:
+  history: 100000
+  multiplier: 2
+
+# Font
+font:
+  normal:
+    family: JetBrains Mono
+  size: 9
+
+# Cursor
+cursor:
+  style:
+    shape: Block
+    blinking: On
+    blink_interval: 800
+    thickness: 0.2
+

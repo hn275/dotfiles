@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+BRIGHTNESS=$(brightnessctl -d gmux_backlight | grep -o '[0-9]*%')
+SUN=
+MOON=
+
+case $1 in
+	sun)
+		echo "$SUN $BRIGHTNESS";;
+	moon)
+		echo "$MOON $BRIGHTNESS";;
+esac
