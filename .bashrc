@@ -26,8 +26,6 @@ if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
 	PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
-# Neofetch
-neofetch
 #PS1='[\u] \w: $ '
 
 #################
@@ -52,5 +50,9 @@ currentdir () {
 	cat $HOME/.cache/last_dir
 }
 
+# Compiling and executing C++ files
+buggo () {
+	g++ $1 && ./a.out
+}
 # Path
 export PYTHONPATH=/usr/local/bin
