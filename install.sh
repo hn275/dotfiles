@@ -6,13 +6,9 @@ USER=$(whoami)
 # Changing to user ownership
 sudo chown -R $USER:$USER *
 
-# taking care of  nvim 
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-nvim +PluginInstall +qall
-echo "Nvim installation completed"
 
 # Installing wm
-sudo pacman -Sy bspwm sxhkd dunst picom alacritty git powerline powerline-fonts unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh nodesjs npm neovim xclip
+sudo pacman -Sy bspwm sxhkd dunst picom alacritty git powerline powerline-fonts unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh nodesjs npm neovim xclip pulseaudio
 echo "Installed wm and other utilities"
 
 # installing yay
@@ -42,8 +38,13 @@ cp -r Scripts/ ~/
 sudo ln -P ~/Scripts/* /usr/local/bin
 
 # Final system update
-sudo pacman -Syyu
 yay -Syyu
+sudo pacman -Syyu
+
+# taking care of  nvim 
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+nvim +PluginInstall +qall
+echo "Nvim installation completed"
 
 # make file system
 cd $HOME
@@ -51,3 +52,4 @@ mkdir Downloads .cache Code Repos
 
 # refresh bash
 bash
+echo "Installation finished, welcome homie!"
