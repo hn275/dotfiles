@@ -1,6 +1,6 @@
 # Import colors
 import:
-  - ~/.config/alacritty/alacritty-theme/themes/iterm.yaml
+  - ~/.config/alacritty/themes/nord.yaml
 
 # Window configurations
 window:
