@@ -12,7 +12,7 @@ nvim +PluginInstall +qall
 echo "Nvim installation completed"
 
 # Installing wm
-sudo pacman -Sy bspwm sxhkd dunst picom alacritty git powerline powerline-fonts unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh
+sudo pacman -Sy bspwm sxhkd dunst picom alacritty git powerline powerline-fonts unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh nodesjs npm neovim xclip
 echo "Installed wm and other utilities"
 
 # installing yay
@@ -23,7 +23,7 @@ echo "Installed yay"
 cd ..
 
 # install some more packages from yay
-yay -Sy polybar pulseaudio-ctl redshift-minimal batsignal i3lock-color arc-gtk-theme-git google-chrome
+yay -Sy polybar pulseaudio-ctl redshift-minimal batsignal i3lock-color arc-gtk-theme-git google-chrome picom-jonaburg-git nodejs-live-server
 
 # copying files
 mkdir -p ~/.config
