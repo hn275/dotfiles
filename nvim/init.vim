@@ -12,6 +12,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'gregsexton/MatchTag'
+" Plugin 'RRethy/vim-illuminate'
 call vundle#end()
 
 filetype plugin indent on
@@ -37,7 +38,7 @@ let g:currentmode={
 			\ 'c'  : 'Command ',
 			\}
 
-"let g:airline_symbols_ascii = 1
+" Powerline
 let g:airline_powerline_fonts = 1
 " Color/themes
 let g:airline_theme='base16_nord'
@@ -60,3 +61,9 @@ augroup remember_folds
 	autocmd BufWinLeave * mkview
 	autocmd BufWinEnter * silent! loadview
 augroup END
+
+" Remapping the escape key to `qq`
+imap qq <Esc>
+
+autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+
