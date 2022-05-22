@@ -12,6 +12,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'gregsexton/MatchTag'
+" Plugin 'akinsho/toggleterm.nvim'
 " Plugin 'RRethy/vim-illuminate'
 call vundle#end()
 
@@ -25,8 +26,6 @@ filetype plugin indent on
 :set tabstop=4
 :set shiftwidth=4
 :syntax on
-"execute pathogen#infect()
-
 let g:currentmode={
 			\ 'n'  : 'NORMAL ',
 			\ 'v'  : 'VISUAL ',
@@ -65,5 +64,6 @@ augroup END
 " Remapping the escape key to `qq`
 imap qq <Esc>
 
+" Variables hilighting
 autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 

@@ -1,14 +1,14 @@
 # Import colors
 import:
-  - ~/.config/alacritty/themes/dracula.yaml
+  - ~/.config/alacritty/themes/nord.yaml
 
 # Window configurations
 window:
   padding:
-    x: 13
-    y: 17
+    x: 5
+    y: 5
   decoration: none
-  opacity: 0.9
+  opacity: 0.8
   title: Terminal
   dynamic_title: true
   class:
@@ -25,13 +25,7 @@ font:
   normal:
     family: JetBrains Mono
     style: Regular
-  bold:
-    family: JetBrains Mono
-    style: Bold
-  italic:
-    family: JetBrains Mono
-    style: Italic
-  size: 11
+  size: 10
 
 # Cursor
 cursor:

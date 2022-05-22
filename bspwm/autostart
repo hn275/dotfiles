@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+
+# Polybar ipc
+$HOME/Scripts/polybar/polybar_launcher.sh
+sleep 0.1
+if ! pgrep -x redshift > /dev/null;then
+	polybar-msg action "#redshift.hook.1"
+else
+	polybar-msg action "#redshift.hook.0"
+fi
+
+# Picom
+if ! pgrep -x picom > /dev/null;then
+	picom --experimental-backend &
+fi
