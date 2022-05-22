@@ -12,7 +12,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'gregsexton/MatchTag'
-" Plugin 'RRethy/vim-illuminate'
+Plugin 'RRethy/vim-illuminate'
+Plugin 'akinsho/toggleterm.nvim'
 call vundle#end()
 
 filetype plugin indent on
@@ -64,6 +65,10 @@ augroup END
 
 " Remapping the escape key to `qq`
 imap qq <Esc>
+vmap qq <Esc>
 
-autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+" Syntax hilighting
+" autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
+" sourcing init.lua
+lua require('init') 
