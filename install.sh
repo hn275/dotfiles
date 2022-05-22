@@ -8,7 +8,7 @@ sudo chown -R $USER:$USER *
 
 
 # Installing wm
-sudo pacman -Sy bspwm sxhkd dunst picom alacritty git powerline powerline-fonts unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh nodesjs npm neovim xclip pulseaudio
+sudo pacman -Sy bspwm sxhkd dunst picom alacritty git powerline powerline-fonts unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh nodesjs npm neovim xclip pulseaudio lua
 echo "Installed wm and other utilities"
 
 # installing yay
