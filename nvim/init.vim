@@ -9,8 +9,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'gregsexton/MatchTag'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'akinsho/toggleterm.nvim'
@@ -27,33 +27,16 @@ set tabstop=4
 set shiftwidth=4
 syntax on
 
-let g:currentmode={
-			\ 'n'  : 'NORMAL ',
-			\ 'v'  : 'VISUAL ',
-			\ 'V'  : 'V·Line ',
-			\ "\<C-V>" : 'V·Block ',
-			\ 'i'  : 'INSERT ',
-			\ 'R'  : 'R ',
-			\ 'Rv' : 'V·Replace ',
-			\ 'c'  : 'Command ',
-			\}
-
-" Powerline
-let g:airline_powerline_fonts = 1
-" Color/themes
-let g:airline_theme='base16_nord'
-" Statusline
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols={}
-let g:airline_symbols.branch = ''
-let g:airline_symbols.colnr = ' col:'
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ' ln:'
-"let g:airline_symbols.maxlinenr = '☰ '
-let g:airline_symbols.dirty='⚡'
+" let g:currentmode={
+" 			\ 'n'  : 'NORMAL ',
+" 			\ 'v'  : 'VISUAL ',
+" 			\ 'V'  : 'V·Line ',
+" 			\ "\<C-V>" : 'V·Block ',
+" 			\ 'i'  : 'INSERT ',
+" 			\ 'R'  : 'R ',
+" 			\ 'Rv' : 'V·Replace ',
+" 			\ 'c'  : 'Command ',
+" 			\}
 
 " Save code folds
 augroup AutoSaveFolds
@@ -72,3 +55,35 @@ set completeopt+=noselect
 
 " sourcing init.lua
 lua require('init') 
+
+" statusline
+set laststatus=2
+" functions
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0 ? ' '.l:branchname.' ':''
+endfunction
+
+" Set mode colors
+hi StatusLine ctermfg=100 ctermbg=122
+hi NormalColor ctermfg=50 
+hi InsertColor ctermfg=223 
+hi ReplaceColor ctermfg=87 
+hi VisualColor ctermfg=50 
+
+" statusline configiration
+set statusline= 
+" mode colors
+" set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+" set statusline+=%#InsertColor#%{(mode()=='r')?'\ \ INSERT\ ':''}
+" set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
+" set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+" set statusline+=%#VisualColor#%{(mode()=='V')?'\ \ VISUAL\ ':''}
+" mode colors ends
+set statusline+=%{StatuslineGit()}
+set statusline+=\ %f\ %y
+set statusline+=
