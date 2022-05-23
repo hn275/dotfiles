@@ -29,10 +29,9 @@ alias nn='nvim'
 #     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 # fi
 
-
 # Cmd line prompt
 source ~/.git-prompt.sh
-PS1='\e[1;34m[\d, \@]\e[00m \e[1;32m[\w]\e[00m \e[2;33m$(__git_ps1 "( %s)")\e[00m:\n  '
+PS1='\e[1;34m[\d, \@]\e[00m \e[1;32m[\w]\e[00m\e[2;33m$(__git_ps1 " ( %s)")\e[00m:\n  '
 
 # PS1='[\u] \w: $ __git_ps1 " (%s)" '
 # PS1='\e[0;34m [\w]\e[m > '
