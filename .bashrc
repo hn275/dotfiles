@@ -11,7 +11,11 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 alias grep='grep --color=auto'
+alias nn='nvim'
 
+# Shell Prompt
+# PS1='[\u] \w: $ '
+# PS1='\e[1;34m \w: > \e[0m'
 # Powerline
 # export PATH="$PATH:/usr/bin"
 # powerline-daemon -q
@@ -26,12 +30,8 @@ if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
 	PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
-#PS1='[\u] \w: $ '
 
-#################
-#### samedir ####
-#################
-#Caching current dir
+# Cdd
 cd () {
 	builtin cd $@
 	if [[ $@ ]];then
@@ -54,5 +54,6 @@ currentdir () {
 buggo () {
 	g++ $1 && ./a.out
 }
+
 # Path
 export PYTHONPATH=/usr/local/bin
