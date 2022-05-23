@@ -6,10 +6,11 @@ require("toggleterm").setup{
 			return vim.o.columns * 0.4
 		end
 	end,
+	start_in_insert = false,
 	shade_terminals = true,
 	shadeing_factor = 1,
 	hide_numbers = true,
-	open_mapping = [[<c-\>]],
+	open_mapping = [[<s-t><s-t>]],
 	close_on_exit = true,
 	direction = 'float',
 	float_opts = {
