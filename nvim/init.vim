@@ -14,19 +14,18 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'gregsexton/MatchTag'
 Plugin 'RRethy/vim-illuminate'
 Plugin 'akinsho/toggleterm.nvim'
+Plugin 'lifepillar/vim-mucomplete'
 call vundle#end()
-
 filetype plugin indent on
 
 " Customized neovim environemt
-:set relativenumber
-:filetype indent on
-:set autoindent
-:set cursorline
-:set tabstop=4
-:set shiftwidth=4
-:syntax on
-"execute pathogen#infect()
+set relativenumber
+filetype indent on
+set autoindent
+set cursorline
+set tabstop=4
+set shiftwidth=4
+syntax on
 
 let g:currentmode={
 			\ 'n'  : 'NORMAL ',
@@ -57,7 +56,7 @@ let g:airline_symbols.linenr = ' ln:'
 let g:airline_symbols.dirty='⚡'
 
 " Save code folds
-augroup remember_folds
+augroup AutoSaveFolds
 	autocmd!
 	autocmd BufWinLeave * mkview
 	autocmd BufWinEnter * silent! loadview
@@ -67,8 +66,9 @@ augroup END
 imap qq <Esc>
 vmap qq <Esc>
 
-" Syntax hilighting
-" autocmd CursorMoved * exe printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\'))
+" Autocomplete
+set completeopt+=menuone
+set completeopt+=noselect
 
 " sourcing init.lua
 lua require('init') 
