@@ -1,6 +1,7 @@
 " VUNDLE
 set nocompatible
 filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'Chiel92/vim-autoformat'
@@ -11,17 +12,13 @@ Plugin 'tpope/vim-commentary'
 " Plugin 'vim-airline/vim-airline'
 " Plugin 'vim-airline/vim-airline-themes'
 Plugin 'gregsexton/MatchTag'
-Plugin 'akinsho/toggleterm.nvim'
 Plugin 'RRethy/vim-illuminate'
+Plugin 'akinsho/toggleterm.nvim'
 Plugin 'lifepillar/vim-mucomplete'
 call vundle#end()
 filetype plugin indent on
 
-" lua plugin
-lua require("init")
-
 " Customized neovim environemt
-set number
 set relativenumber
 filetype indent on
 set autoindent
@@ -29,50 +26,9 @@ set cursorline
 set tabstop=4
 set shiftwidth=4
 syntax on
-let g:currentmode={
-			\ 'n'  : 'NORMAL ',
-			\ 'v'  : 'VISUAL ',
-			\ 'V'  : 'V·Line ',
-			\ "\<C-V>" : 'V·Block ',
-			\ 'i'  : 'INSERT ',
-			\ 'R'  : 'R ',
-			\ 'Rv' : 'V·Replace ',
-			\ 'c'  : 'Command ',
-			\}
 
-" Powerline
-"let g:airline_powerline_fonts = 1
-"" Color/themes
-"let g:airline_theme='base16_nord'
-"" Statusline
-"let g:airline_left_sep = ''
-"let g:airline_left_alt_sep = ''
-"let g:airline_right_sep = ''
-"let g:airline_right_alt_sep = ''
-"let g:airline_symbols={}
-"let g:airline_symbols.branch = ''
-"let g:airline_symbols.colnr = ' col:'
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = ' ln:'
-""let g:airline_symbols.maxlinenr = '☰ '
-"let g:airline_symbols.dirty='⚡'
-
-" statusline
-" Git branch
-function! GitBranch() 
-  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
-endfunction
-" set status line
-set statusline=
-set statusline+=%{StatuslineGit()}
-
-"Save code folds
-augroup remember_folds
+" Save code folds
+augroup AutoSaveFolds
 	autocmd!
 	autocmd BufWinLeave * mkview
 	autocmd BufWinEnter * silent! loadview
@@ -82,5 +38,47 @@ augroup END
 imap qq <Esc>
 vmap qq <Esc>
 
-" MUcomplete
+" Autocomplete
 set completeopt+=menuone
+set completeopt+=noselect
+
+" sourcing init.lua
+lua require('init') 
+
+" statusline
+" functions
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0 ? ' '.l:branchname.' ':''
+endfunction
+
+" Set mode colors
+hi NormalColor ctermfg=255 ctermbg=102
+hi InsertColor ctermfg=239 ctermbg=45
+hi ReplaceColor ctermfg=239 ctermbg=187
+hi VisualColor ctermfg=239 ctermbg=131
+
+" statusline configiration
+set statusline= 
+set laststatus=2
+" mode colors
+set statusline+=%#InsertColor#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
+set statusline+=%#ReplaceColor#%{(mode()=='q')?'\ \ REPLACE\ ':''}
+set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#VisualColor#%{(mode()=='V')?'\ \ VISUAL\ ':''}
+set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+" mode colors ends
+set statusline+=%#PmenuSel#
+set statusline+=\ %{StatuslineGit()}
+set statusline+=\ %f\ %y
+set statusline+=\ %m " Read only flag and Modified flag
+set statusline+=%=
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
