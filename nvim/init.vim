@@ -27,17 +27,6 @@ set tabstop=4
 set shiftwidth=4
 syntax on
 
-" let g:currentmode={
-" 			\ 'n'  : 'NORMAL ',
-" 			\ 'v'  : 'VISUAL ',
-" 			\ 'V'  : 'V·Line ',
-" 			\ "\<C-V>" : 'V·Block ',
-" 			\ 'i'  : 'INSERT ',
-" 			\ 'R'  : 'R ',
-" 			\ 'Rv' : 'V·Replace ',
-" 			\ 'c'  : 'Command ',
-" 			\}
-
 " Save code folds
 augroup AutoSaveFolds
 	autocmd!
@@ -57,7 +46,6 @@ set completeopt+=noselect
 lua require('init') 
 
 " statusline
-set laststatus=2
 " functions
 function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
@@ -69,21 +57,28 @@ function! StatuslineGit()
 endfunction
 
 " Set mode colors
-hi StatusLine ctermfg=100 ctermbg=122
-hi NormalColor ctermfg=50 
-hi InsertColor ctermfg=223 
-hi ReplaceColor ctermfg=87 
-hi VisualColor ctermfg=50 
+hi NormalColor ctermfg=255 ctermbg=102
+hi InsertColor ctermfg=239 ctermbg=45
+hi ReplaceColor ctermfg=239 ctermbg=187
+hi VisualColor ctermfg=239 ctermbg=131
 
 " statusline configiration
 set statusline= 
+set laststatus=2
 " mode colors
-" set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
-" set statusline+=%#InsertColor#%{(mode()=='r')?'\ \ INSERT\ ':''}
-" set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
-" set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-" set statusline+=%#VisualColor#%{(mode()=='V')?'\ \ VISUAL\ ':''}
+set statusline+=%#InsertColor#%{(mode()=='i')?'\ \ INSERT\ ':''}
+set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
+set statusline+=%#ReplaceColor#%{(mode()=='q')?'\ \ REPLACE\ ':''}
+set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+set statusline+=%#VisualColor#%{(mode()=='V')?'\ \ VISUAL\ ':''}
+set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 " mode colors ends
-set statusline+=%{StatuslineGit()}
+set statusline+=%#PmenuSel#
+set statusline+=\ %{StatuslineGit()}
 set statusline+=\ %f\ %y
-set statusline+=
+set statusline+=\ %m " Read only flag and Modified flag
+set statusline+=%=
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\ 
