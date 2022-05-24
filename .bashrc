@@ -5,33 +5,33 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Blinking cursor
+# syntax is:
+# printf '\033[x q'
+# where
+# 	Ps = 0  -> blinking block.
+# 	Ps = 1  -> blinking block (default).
+# 	Ps = 2  -> steady block.
+# 	Ps = 3  -> blinking underline.
+# 	Ps = 4  -> steady underline.
+# 	Ps = 5  -> blinking bar (xterm).
+# 	Ps = 6  -> steady bar (xterm).
+printf '\033[3 q'
+
 # Alias
-alias ls='ls --color=auto'
+alias ls='lsd --color=auto'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 alias grep='grep --color=auto'
 alias nn='nvim'
 
-# Shell Prompt
-# PS1='[\u] \w: $ '
-# PS1='\e[1;34m \w: > \e[0m'
-# Powerline
-# export PATH="$PATH:/usr/bin"
-# powerline-daemon -q
-# POWERLINE_BASH_CONTINUATION=1
-# POWERLINE_BASH_SELECT=1
-# source /usr/share/powerline/bindings/bash/powerline.sh
-function _update_ps1() {
-	PS1=$(powerline-shell $?)
-}
-
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-	PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
+# Cmd line prompt
+source ~/.git-prompt.sh
+PS1='\e[1;34m\e[00m  \e[1;32m \w\e[00m \e[2;33m$(__git_ps1 "[ %s]")\e[00m\n   '
 
 
-# Cdd
+# Go to same directory
 cd () {
 	builtin cd $@
 	if [[ $@ ]];then
@@ -39,21 +39,16 @@ cd () {
 	fi
 }
 
-# samedir to go to the current directory
 cdd () {
 	lastdir=$(cat $HOME/.cache/last_dir)
 	echo "Changing directory to ${lastdir}"
 	builtin cd $lastdir
 }
 
-currentdir () {
-	cat $HOME/.cache/last_dir
+# C++ compiler
+function buggo {
+	g++ $1
+	./a.out
 }
 
-# Compiling and executing C++ files
-buggo () {
-	g++ $1 && ./a.out
-}
 
-# Path
-export PYTHONPATH=/usr/local/bin

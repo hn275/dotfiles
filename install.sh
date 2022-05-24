@@ -6,15 +6,14 @@ USER=$(whoami)
 # Changing to user ownership
 sudo chown -R $USER:$USER *
 
-
 # Installing wm
-sudo pacman -Sy bspwm sxhkd dunst picom alacritty git powerline powerline-fonts unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh nodesjs npm neovim xclip pulseaudio lua
+sudo pacman -Sy bspwm sxhkd dunst picom alacritty git unzip lightdm lightdm-gtk-greeter brightnessctl dmenu lxappearance openssh nodesjs npm neovim xclip pulseaudio lua vim
 echo "Installed wm and other utilities"
 
 # installing yay
 sudo git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
-makepkg -si 
+makepkg -si
 echo "Installed yay"
 cd ..
 
@@ -22,8 +21,11 @@ cd ..
 yay -Sy polybar pulseaudio-ctl redshift-minimal batsignal i3lock-color arc-gtk-theme-git google-chrome picom-jonaburg-git nodejs-live-server
 
 # copying files
-mkdir -p ~/.config
-cp -rf alacritty/ bspwm/ dunst/ nvim/ picom/ polybar/ powerline-shell/ redshift/ sxhkd/ ~/.config
+CONFIG=~/.config
+if [ -d $CONFIG ];then
+	mkdir -p ~/.config
+fi
+cp -rf alacritty/ bspwm/ dunst/ nvim/ picom/ polybar/ redshift/ sxhkd/ $CONFIG
 echo ".config files copied"
 cp -r fonts /usr/share
 cp -r .bashrc .xprofile .icon/ ~
@@ -41,10 +43,11 @@ sudo ln -P ~/Scripts/* /usr/local/bin
 yay -Syyu
 sudo pacman -Syyu
 
-# taking care of  nvim 
+# taking care of  nvim
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 nvim +PluginInstall +qall
 echo "Nvim installation completed"
+sudo pacman -R vim # I don't need vim anymore
 
 # make file system
 cd $HOME
