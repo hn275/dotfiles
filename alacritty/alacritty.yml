@@ -5,8 +5,8 @@ import:
 # Window configurations
 window:
   padding:
-    x: 5
-    y: 5
+    x: 10
+    y: 10
   decoration: none
   opacity: 0.8
   title: Terminal
@@ -25,12 +25,12 @@ font:
   normal:
     family: JetBrains Mono
     style: Regular
-  size: 10
+  size: 11
 
 # Cursor
 cursor:
   style:
-    shape: Block
+    shape: Underline
     blinking: On
     blink_interval: 800
     thickness: 0.2
