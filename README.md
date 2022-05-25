@@ -19,3 +19,18 @@ For this environent, I'm using:
 </ul>
 <h2>Installation:</h2>
 
+1. Clone the repos with <code>git clone https://github.com/halnguyen/dotfiles.git</code>.
+
+2. For laptop, go into the "Mac" branch by:
+
+		cd dotfile
+		git checkout Mac
+
+3. Run the install script with <code>./install.sh</code> and enter the sudo password if needed.
+<h2>Troubleshooting</h2>
+Reminder again that this is a personal backup, currently there will be no support in regard to troubleshooting for your own machine, please refer to the github page or (ArchWiki) for any bugs. But here are some dumb mistakes that I made in my system:
+<ol>
+	<li>Awesome font/Nerd fonts glyphs are not showing up in NeoVim, this is due to locale not being generated properly, refer to this <a href="https://wiki.archlinux.org/title/locale">documenation</a> on ArchWik for troubleshooting.</li>
+	<li>Alacritty terminal emulator does not render icons for <code>lsd</code>, make sure that "JetBrains Mono Nerd Font" is at least the fall back font for <code>$HOME/.config/alacritty/alacritty.yaml</code></li>
+	<li>SSH freezes, this is due to the wifi driver BCM4331, refer to this <a href="https://wiki.archlinux.org/title/broadcom_wireless#SSH_freeze_for_BCM4331_with_b43">documentation</a> on ArchWiki for troubleshooting</li>
+</ol>
