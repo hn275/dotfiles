@@ -17,6 +17,7 @@ Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/vim-gitbranch'
 call vundle#end()
 filetype plugin indent on
 
@@ -69,15 +70,15 @@ colorscheme onedark
 
 " statusline
 " " functions
-" " Git Branch
-" function! GitBranch()
-"   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-" endfunction
+" Git Branch
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
 
-" function! StatuslineGit()
-"   let l:branchname = GitBranch()
-"   return strlen(l:branchname) > 0 ? '  '.l:branchname.' ':''
-" endfunction
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0 ? '  '.l:branchname.' ':''
+endfunction
 
 " " Defining mode colors
 " hi NormalColor ctermfg=239 ctermbg=87
@@ -114,5 +115,12 @@ colorscheme onedark
 " set statusline+=\ %p%%\ 
 " set statusline+=\ %l:%c\ 
 let g:lightline = {
-		\'colorscheme':'one',
-	\}
+	  \ 'colorscheme': 'onedark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+	  \ 'gitbranch': 'StatuslineGit',
+      \ },
+      \ }
