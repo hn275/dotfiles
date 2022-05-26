@@ -17,6 +17,11 @@ Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'itchyny/lightline.vim'
+Plugin 'itchyny/vim-gitbranch'
+Plugin 'preservim/nerdtree'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'lukas-reineke/indent-blankline.nvim'
 call vundle#end()
 filetype plugin indent on
 
@@ -26,10 +31,9 @@ set relativenumber
 filetype indent on
 set autoindent
 set cursorline
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 syntax on
-
 
 " Save code folds
 augroup AutoSaveFolds
@@ -38,13 +42,42 @@ augroup AutoSaveFolds
 	autocmd BufWinEnter * silent! loadview
 augroup END
 
-" Remapping the escape key to `ii`
-imap ii <Esc>
-vmap ii <Esc>
-
 " Autocomplete
 set completeopt+=menuone
 set completeopt+=noselect
+
+" Markdown Preview
+" let g:mkdp_auto_start = 1
+let g:mkdp_browser = '/usr/bin/firefox' 
+
+" NERDTree 
+nmap <C-t> :NERDTreeToggle<CR>
+" Start NERDTree when Vim is started without file arguments.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" NERDTree git plugin
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'✹',
+                \ 'Staged'    :'✚',
+                \ 'Untracked' :'✭',
+                \ 'Renamed'   :'➜',
+                \ 'Unmerged'  :'═',
+                \ 'Deleted'   :'✖',
+                \ 'Dirty'     :'✗',
+                \ 'Ignored'   :'☒',
+                \ 'Clean'     :'✔︎',
+                \ 'Unknown'   :'?',
+                \ }
+let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " sourcing init.lua
 lua require('init') 
@@ -69,15 +102,15 @@ colorscheme onedark
 
 " statusline
 " " functions
-" " Git Branch
-" function! GitBranch()
-"   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-" endfunction
+" Git Branch
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
 
-" function! StatuslineGit()
-"   let l:branchname = GitBranch()
-"   return strlen(l:branchname) > 0 ? '  '.l:branchname.' ':''
-" endfunction
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0 ? '  '.l:branchname.' ':''
+endfunction
 
 " " Defining mode colors
 " hi NormalColor ctermfg=239 ctermbg=87
@@ -114,5 +147,20 @@ colorscheme onedark
 " set statusline+=\ %p%%\ 
 " set statusline+=\ %l:%c\ 
 let g:lightline = {
-		\'colorscheme':'one',
-	\}
+	  \ 'colorscheme': 'onedark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+	  \ 'gitbranch': 'StatuslineGit',
+      \ },
+      \ }
+" Custom Keybinding
+" Remapping the escape key to `ii`
+imap <S-i><S-i> <Esc>
+vmap <S-i><S-i> <Esc>
+" Autoformat
+imap <C-f> <Esc>:Autoformat<CR>
+" Turn off highlight search
+nmap <C-h> :set nohlsearch<CR>

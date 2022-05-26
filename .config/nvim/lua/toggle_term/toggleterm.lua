@@ -10,7 +10,7 @@ require("toggleterm").setup{
 	shade_terminals = true,
 	shadeing_factor = 1,
 	hide_numbers = true,
-	open_mapping = [[<s-t><s-t>]],
+	open_mapping = [[<c-\>]],
 	close_on_exit = true,
 	direction = 'float',
 	float_opts = {
