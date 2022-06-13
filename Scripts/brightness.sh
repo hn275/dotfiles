@@ -5,10 +5,12 @@
 DEVICE=gmux_backlight
 
 function polybar_ipc () {
-	if pgrep -x redshift > /dev/null;then
-		polybar-msg action "#brightness.hook.1"
-	else 
-		polybar-msg action "#brightness.hook.0"
+	if pgrep -x polybar > /dev/null;then
+		if pgrep -x redshift > /dev/null;then
+			polybar-msg action "#brightness.hook.1"
+		else 
+			polybar-msg action "#brightness.hook.0"
+		fi
 	fi
 }
 

@@ -7,7 +7,11 @@ DEVICE=smc::kbd_backlight
 polybar_ipc () {
 	if pgrep -x polybar;
 	then
-		polybar-msg action "#kbdlight.hook.0"
+		if pgrep -x redshift > /dev/null;then
+			polybar-msg action "#kbdlight.hook.1"
+		else
+			polybar-msg action "#kbdlight.hook.0"
+		fi
 	fi
 }
 
@@ -24,11 +28,9 @@ kbd_down () {
 case $@ in
 	"up")
 		kbd_up
-		polybar_ipc
 		;;
 	"down")
 		kbd_down
-		polybar_ipc
 		;;
 	*)
 		polybar_ipc
