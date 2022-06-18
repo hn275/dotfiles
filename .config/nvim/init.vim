@@ -164,3 +164,5 @@ vmap <S-i><S-i> <Esc>
 imap <C-f> <Esc>:Autoformat<CR>
 " Turn off highlight search
 nmap <C-h> :set nohlsearch<CR>
+
+
