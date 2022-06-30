@@ -18,10 +18,12 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'itchyny/lightline.vim'
 Plugin 'itchyny/vim-gitbranch'
-Plugin 'preservim/nerdtree'
+Plugin 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plugin 'kyazdani42/nvim-tree.lua'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'lukas-reineke/indent-blankline.nvim'
+Plugin 'yuezk/vim-js'
+Plugin 'maxmellon/vim-jsx-pretty'
 call vundle#end()
 filetype plugin indent on
 
@@ -34,13 +36,18 @@ set cursorline
 set tabstop=2
 set shiftwidth=2
 syntax on
+let g:vim_jsx_pretty_colorful_config = 1
 
 " Save code folds
-augroup AutoSaveFolds
-	autocmd!
-	autocmd BufWinLeave * mkview
-	autocmd BufWinEnter * silent! loadview
-augroup END
+" augroup AutoSaveFolds
+"   autocmd!
+"   autocmd BufWinLeave * mkview
+"   autocmd BufWinEnter * silent! loadview
+" augroup END
+set foldmethod=syntax
+" set foldcolumn=1
+let javaScript_fold=1
+set foldlevelstart=99
 
 " Autocomplete
 set completeopt+=menuone
@@ -48,39 +55,10 @@ set completeopt+=noselect
 
 " Markdown Preview
 " let g:mkdp_auto_start = 1
-let g:mkdp_browser = '/usr/bin/firefox' 
-
-" NERDTree 
-nmap <C-t> :NERDTreeToggle<CR>
-" Start NERDTree when Vim is started without file arguments.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
-
-" NERDTree git plugin
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'✹',
-                \ 'Staged'    :'✚',
-                \ 'Untracked' :'✭',
-                \ 'Renamed'   :'➜',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'✖',
-                \ 'Dirty'     :'✗',
-                \ 'Ignored'   :'☒',
-                \ 'Clean'     :'✔︎',
-                \ 'Unknown'   :'?',
-                \ }
-let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:mkdp_browser = '/usr/bin/firefox'
 
 " sourcing init.lua
-lua require('init') 
+lua require('init')
 
 " Color scheme
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
@@ -91,9 +69,9 @@ if (empty($TMUX))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
     let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  "  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  "  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
   if (has("termguicolors"))
     set termguicolors
   endif
@@ -117,12 +95,12 @@ endfunction
 " hi InsertColor ctermfg=255 ctermbg=33
 " hi ReplaceColor ctermfg=255 ctermbg=9
 " hi VisualColor ctermfg=255 ctermbg=135
-" function! s:ModeColor() 
-" 	set statusline+=%#InsertColor#%{(mode()=='i')?'\ \ INSERT\ ':''}
-" 	set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
-" 	set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
-" 	set statusline+=%#VisualColor#%{(mode()=='V')?'\ \ VISUAL\ ':''}
-" 	set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
+" function! s:ModeColor()
+"   set statusline+=%#InsertColor#%{(mode()=='i')?'\ \ INSERT\ ':''}
+"   set statusline+=%#ReplaceColor#%{(mode()=='R')?'\ \ REPLACE\ ':''}
+"   set statusline+=%#VisualColor#%{(mode()=='v')?'\ \ VISUAL\ ':''}
+"   set statusline+=%#VisualColor#%{(mode()=='V')?'\ \ VISUAL\ ':''}
+"   set statusline+=%#NormalColor#%{(mode()=='n')?'\ \ NORMAL\ ':''}
 " endfunction
 
 " " Set colors
@@ -132,37 +110,42 @@ endfunction
 
 " " statusline configiration
 " set laststatus=2
-" set statusline= 
-" " Set colors based on mode 
+" set statusline=
+" " Set colors based on mode
 " call s:ModeColor()
-" set statusline+=%#Background# 
-" set statusline+=\ %f\ 	" File name
+" set statusline+=%#Background#
+" set statusline+=\ %f\   " File name
 " set statusline+=%#PmenuSel#
-" set statusline+=\ %y 	" File type
-" set statusline+=%m 		" Read only flag and Modified flag
+" set statusline+=\ %y  " File type
+" set statusline+=%m    " Read only flag and Modified flag
 " set statusline+=%{StatuslineGit()}
 " set statusline+=%=
 " set statusline+=%#GitColor#
-" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}\ 
-" set statusline+=\ %p%%\ 
-" set statusline+=\ %l:%c\ 
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}\
+" set statusline+=\ %p%%\
+" set statusline+=\ %l:%c\
 let g:lightline = {
-	  \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'onedark',
       \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-	  \ 'gitbranch': 'StatuslineGit',
-      \ },
-      \ }
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+        \ },
+        \ 'component_function': {
+          \ 'gitbranch': 'StatuslineGit',
+          \ },
+          \ }
+
 " Custom Keybinding
 " Remapping the escape key to `ii`
 imap <S-i><S-i> <Esc>
 vmap <S-i><S-i> <Esc>
+
 " Autoformat
 imap <C-f> <Esc>:Autoformat<CR>
+
 " Turn off highlight search
 nmap <C-h> :set nohlsearch<CR>
 
+" NERDTree
+nmap <C-t> :NvimTreeToggle<CR>
 
