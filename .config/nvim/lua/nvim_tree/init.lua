@@ -8,7 +8,7 @@ require("nvim-tree").setup({
 					{ key = "o", action = "edit" },
 					{ key = "i", action = "split" },
 					{ key = "s", action = "vsplit" },
-					{ key = "t", action = "newtab" },
+					{ key = "<S-t>", action = "newtab" },
 					{ key = "?", action = "toggle_help" },
 					{ key = "n", action = "create" },
 				}
