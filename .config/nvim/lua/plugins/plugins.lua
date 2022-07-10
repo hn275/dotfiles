@@ -66,14 +66,20 @@ return packer.startup(function(use)
     use "yuezk/vim-js"
     use "maxmellon/vim-jsx-pretty"
     use "ap/vim-css-color"
+    --
     -- use "numToStr/Comment.nvim" -- commenting toggle
     use "tpope/vim-commentary"
+    --
     -- Themes plugins
     use "sainnhe/gruvbox-material"
     use "vim-airline/vim-airline"
     use "joshdick/onedark.vim"
     use "vim-airline/vim-airline-themes"
     use "edkolev/tmuxline.vim"
+    use "rakr/vim-one"
+    use 'liuchengxu/space-vim-dark'
+    use "tyrannicaltoucan/vim-deep-space"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

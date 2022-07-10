@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["space-vim-dark"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/space-vim-dark",
+    url = "https://github.com/liuchengxu/space-vim-dark"
+  },
   ["tmuxline.vim"] = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/tmuxline.vim",
@@ -169,6 +174,11 @@ _G.packer_plugins = {
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/vim-css-color",
     url = "https://github.com/ap/vim-css-color"
   },
+  ["vim-deep-space"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/vim-deep-space",
+    url = "https://github.com/tyrannicaltoucan/vim-deep-space"
+  },
   ["vim-devicons"] = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/vim-devicons",
@@ -193,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/vim-jsx-pretty",
     url = "https://github.com/maxmellon/vim-jsx-pretty"
+  },
+  ["vim-one"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/vim-one",
+    url = "https://github.com/rakr/vim-one"
   },
   ["vim-polyglot"] = {
     loaded = true,

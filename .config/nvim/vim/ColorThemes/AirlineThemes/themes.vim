@@ -1,5 +1,3 @@
-let g:airline_theme="base16_gruvbox_dark_hard"
-
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
