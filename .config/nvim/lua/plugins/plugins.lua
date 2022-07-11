@@ -47,12 +47,16 @@ return packer.startup(function(use)
     use { "neoclide/coc.nvim", branch = "release" } -- coc
     use "Chiel92/vim-autoformat" -- Autoformat
     use "mattn/emmet-vim" -- emmet-vim for html tags
-    use "jiangmiao/auto-pairs" -- auto pairs 
+    use "jiangmiao/auto-pairs" -- auto pairs
     use "gregsexton/MatchTag" -- html tags highlighting
     use "RRethy/vim-illuminate" -- variables highlighting
     use "akinsho/toggleterm.nvim" -- toggle term
-    use "iamcco/markdown-preview.nvim" -- Markdown Preview
+    use({
+            "iamcco/markdown-preview.nvim",
+            run = function() vim.fn["mkdp#util#install"]() end,
+        })
 
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
     -- for nvim tree sitter
     use "sheerun/vim-polyglot"
     use "itchyny/vim-gitbranch"
