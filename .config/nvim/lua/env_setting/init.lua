@@ -1,6 +1,6 @@
 local options = {
 	backup = false, -- creates backup
-	clipboard = "unnamedplus", -- allow accessing the clipboard for neovim
+	-- clipboard = "unnamedplus", -- allow accessing the clipboard for neovim
 	cmdheight = 1, -- adding height to the command line
 	conceallevel = 0, -- making `` visible in markdown files
 	fileencoding = "utf-8",
@@ -27,7 +27,7 @@ local options = {
 	number = true, -- line number
 	relativenumber = false, -- enable relative number
 	numberwidth = 3, -- set number column width
-	signcolumn = "auto", -- show sign column when there is a sign
+	signcolumn = "yes:1", -- show sign column when there is a sign
 	wrap = false, -- no wrapping,
 	foldmethod = "syntax", -- setting fold method
 	foldcolumn = "1", -- dedicated column for fold symbols

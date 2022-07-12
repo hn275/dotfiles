@@ -51,38 +51,52 @@ return packer.startup(function(use)
     use "gregsexton/MatchTag" -- html tags highlighting
     use "RRethy/vim-illuminate" -- variables highlighting
     use "akinsho/toggleterm.nvim" -- toggle term
+    use "tpope/vim-commentary" -- comment toggler
+
+    -- Buffer line
+    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
+
+    -- Lua line --
+    use {
+        "nvim-lualine/lualine.nvim",
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
+    -- Markdown preview --
     use({
             "iamcco/markdown-preview.nvim",
             run = function() vim.fn["mkdp#util#install"]() end,
         })
-
     use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
-    -- for nvim tree sitter
+
+    -- nvim tree sitter --
     use "sheerun/vim-polyglot"
     use "itchyny/vim-gitbranch"
-    use "kyazdani42/nvim-web-devicons"  -- optional, for file icons
+    -- use "kyazdani42/nvim-web-devicons"  -- optional, for file icons
     use "kyazdani42/nvim-tree.lua"
     use "ryanoasis/vim-devicons"
 
     use "lukas-reineke/indent-blankline.nvim" -- blank indentation
 
-    -- Language syntax specific
+    -- Language syntax specific --
     use "yuezk/vim-js"
     use "maxmellon/vim-jsx-pretty"
     use "ap/vim-css-color"
-    --
-    -- use "numToStr/Comment.nvim" -- commenting toggle
-    use "tpope/vim-commentary"
+
+    -- Snippets
+    use "SirVer/ultisnips"
+    use 'mlaursen/vim-react-snippets'
+
     --
     -- Themes plugins
     use "sainnhe/gruvbox-material"
-    use "vim-airline/vim-airline"
     use "joshdick/onedark.vim"
-    use "vim-airline/vim-airline-themes"
     use "edkolev/tmuxline.vim"
     use "rakr/vim-one"
     use 'liuchengxu/space-vim-dark'
     use "tyrannicaltoucan/vim-deep-space"
+    use 'folke/tokyonight.nvim'
+    use 'mhartington/oceanic-next'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

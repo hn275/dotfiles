@@ -9,10 +9,12 @@ if (empty($TMUX))
 endif
 set background=dark
 
+" --- One Dark ---
+colorscheme onedark
+ 
 " --- Deepspace ---
-colorscheme deep-space
-let g:deepspace_italics=1
-let g:airline_theme="deep_space"
+" colorscheme deep-space
+" let g:deepspace_italics=1
 
 " --- Gruvbox ---
 " " Contrast
@@ -20,3 +22,11 @@ let g:airline_theme="deep_space"
 " let g:gruvbox_material_better_performace = 1 " better performace
 "  let g:airline_theme="base16_gruvbox_dark_hard" " setting airline theme
 " colorscheme gruvbox-material 
+
+" --- Tokyo Night ---
+" colorscheme tokyonight
+
+" --- Oceanic next ---
+" let g:oceanic_next_terminal_bold = 1
+" let g:oceanic_next_terminal_italic = 1
+" colorscheme OceanicNext 
