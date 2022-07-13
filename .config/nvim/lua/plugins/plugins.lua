@@ -40,10 +40,14 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-    -- My plugins here
-    use "wbthomason/packer.nvim" -- Have packer manage itself
+
+    -- SO MANY PLUGINS REQUIRE THESE, JUST HAVE THEM UP HERE --
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use 'kyazdani42/nvim-web-devicons' -- So many plugins require this
+
+    -- useins
+    use "wbthomason/packer.nvim" -- have packer manages itself
     use { "neoclide/coc.nvim", branch = "release" } -- coc
     use "Chiel92/vim-autoformat" -- Autoformat
     use "mattn/emmet-vim" -- emmet-vim for html tags
@@ -52,31 +56,33 @@ return packer.startup(function(use)
     use "RRethy/vim-illuminate" -- variables highlighting
     use "akinsho/toggleterm.nvim" -- toggle term
     use "tpope/vim-commentary" -- comment toggler
+    use "nvim-telescope/telescope.nvim" -- telescope
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- nvim treesitter
+    -- use "folke/todo-comments.nvim" -- todo-comments
+    use "lukas-reineke/indent-blankline.nvim" -- blank indentation
+    use {'akinsho/bufferline.nvim', tag = "v2.*" } -- bufferline
+    use { "nvim-lualine/lualine.nvim", requires = { opt = true } } -- lua line
 
-    -- Buffer line
-    use {'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons'}
-
-    -- Lua line --
-    use {
-        "nvim-lualine/lualine.nvim",
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-    }
+    -- cmp stuff
+    -- use 'neovim/nvim-lspconfig'
+    -- use 'hrsh7th/cmp-nvim-lsp'
+    -- use 'hrsh7th/cmp-buffer'
+    -- use 'hrsh7th/cmp-path'
+    -- use 'hrsh7th/cmp-cmdline'
+    -- use 'hrsh7th/nvim-cmp'
 
     -- Markdown preview --
     use({
             "iamcco/markdown-preview.nvim",
             run = function() vim.fn["mkdp#util#install"]() end,
         })
-    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
     -- nvim tree sitter --
     use "sheerun/vim-polyglot"
     use "itchyny/vim-gitbranch"
-    -- use "kyazdani42/nvim-web-devicons"  -- optional, for file icons
+    use "kyazdani42/nvim-web-devicons"  -- optional, for file icons
     use "kyazdani42/nvim-tree.lua"
     use "ryanoasis/vim-devicons"
-
-    use "lukas-reineke/indent-blankline.nvim" -- blank indentation
 
     -- Language syntax specific --
     use "yuezk/vim-js"
