@@ -16,16 +16,30 @@ k("n", "<C-j>", "<C-w>j", opts)
 k("n", "<C-k>", "<C-w>k", opts)
 k("n", "<C-l>", "<C-w>l", opts)
 
--- BufferLine 
--- TODO: migrate over from vimscript
+k("n", "<leader>bd", ":bd<CR>", opts) -- close buffers
+k("n", "<leader>vs", ":vsplit<CR>", opts) -- vertical split
+k("n", "<leader>hs", ":split<CR>", opts) -- horizontal split
+
+
+-- BufferLine go to buffer
+k("n", "<leader>1", ":lua require('bufferline').go_to_buffer(1, true)<CR>", opts)
+k("n", "<leader>2", ":lua require('bufferline').go_to_buffer(2, true)<CR>", opts)
+k("n", "<leader>3", ":lua require('bufferline').go_to_buffer(3, true)<CR>", opts)
+k("n", "<leader>4", ":lua require('bufferline').go_to_buffer(4, true)<CR>", opts)
+k("n", "<leader>5", ":lua require('bufferline').go_to_buffer(5, true)<CR>", opts)
+k("n", "<leader>6", ":lua require('bufferline').go_to_buffer(6, true)<CR>", opts)
+k("n", "<leader>7", ":lua require('bufferline').go_to_buffer(7, true)<CR>", opts)
+k("n", "<leader>8", ":lua require('bufferline').go_to_buffer(8, true)<CR>", opts)
+k("n", "<leader>9", ":lua require('bufferline').go_to_buffer(9, true)<CR>", opts)
+
+-- TodoComment
+-- The comments are TodoQuickFix, TodoLocList, and TodoTelescope
+-- k("n", "tt", ":Todo", { noremap = true })
 
 -- Telescope
 k("n", "ff", ":Telescope find_files<CR>", opts)
 k("n", "fg", ":Telescope live_grep<CR>", opts)
 
--- TodoComment
--- The comments are TodoQuickFix, TodoLocList, and TodoTelescope
--- k("n", "tt", ":Todo", { noremap = true })
 
 -- Nvim treesitter 
 k("n", "<leader>t", ":NvimTreeToggle<CR>", opts)
