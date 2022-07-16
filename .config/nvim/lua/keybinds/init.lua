@@ -18,7 +18,6 @@ k("n", "<C-l>", "<C-w>l", opts)
 
 k("n", "<leader>bd", ":bd<CR>", opts) -- close buffers
 k("n", "<leader>vs", ":vsplit<CR>", opts) -- vertical split
-k("n", "<leader>hs", ":split<CR>", opts) -- horizontal split
 
 
 -- BufferLine go to buffer

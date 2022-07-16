@@ -37,7 +37,6 @@ packer.init {
         end,
     },
 }
-
 -- Install your plugins here
 return packer.startup(function(use)
 
@@ -48,7 +47,7 @@ return packer.startup(function(use)
 
     -- useins
     use "wbthomason/packer.nvim" -- have packer manages itself
-    use { "neoclide/coc.nvim", branch = "release" } -- coc
+    -- use { "neoclide/coc.nvim", branch = "release" } -- coc
     use "Chiel92/vim-autoformat" -- Autoformat
     use "mattn/emmet-vim" -- emmet-vim for html tags
     use "jiangmiao/auto-pairs" -- auto pairs
@@ -64,12 +63,11 @@ return packer.startup(function(use)
     use { "nvim-lualine/lualine.nvim", requires = { opt = true } } -- lua line
 
     -- cmp stuff
-    -- use 'neovim/nvim-lspconfig'
-    -- use 'hrsh7th/cmp-nvim-lsp'
-    -- use 'hrsh7th/cmp-buffer'
-    -- use 'hrsh7th/cmp-path'
-    -- use 'hrsh7th/cmp-cmdline'
-    -- use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
+    use 'saadparwaiz1/cmp_luasnip'
 
     -- Markdown preview --
     use({
@@ -80,7 +78,6 @@ return packer.startup(function(use)
     -- nvim tree sitter --
     use "sheerun/vim-polyglot"
     use "itchyny/vim-gitbranch"
-    use "kyazdani42/nvim-web-devicons"  -- optional, for file icons
     use "kyazdani42/nvim-tree.lua"
     use "ryanoasis/vim-devicons"
 
@@ -90,8 +87,10 @@ return packer.startup(function(use)
     use "ap/vim-css-color"
 
     -- Snippets
-    use "SirVer/ultisnips"
-    use 'mlaursen/vim-react-snippets'
+    -- use "SirVer/ultisnips"
+    -- use 'mlaursen/vim-react-snippets'
+    use "L3MON4D3/LuaSnip" --snippet engine
+    use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     --
     -- Themes plugins

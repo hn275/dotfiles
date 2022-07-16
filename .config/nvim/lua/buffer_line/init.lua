@@ -22,7 +22,7 @@ bufferLine.setup {
     show_buffer_close_icons = false,
     show_close_icon = false,
     show_tab_indicators = true,
-    separator_style = 'slant', -- Acceptable values are: thick | thin | slant
+    separator_style = 'thin', -- Acceptable values are: thick | thin | slant
     always_show_bufferline = true,
   }
 }
