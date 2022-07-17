@@ -24,26 +24,12 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -al'
 alias grep='grep --color=auto'
+alias g='git'
 alias nn='nvim'
 
 # Cmd line prompt
 source ~/.git-prompt.sh
-PS1='\e[1;34m\e[00m  \e[1;32m \w\e[00m \e[2;33m$(__git_ps1 "[ %s]")\e[00m\n   '
-
-
-# Go to same directory
-cd () {
-	builtin cd $@
-	if [[ $@ ]];then
-		pwd > $HOME/.cache/last_dir
-	fi
-}
-
-cdd () {
-	lastdir=$(cat $HOME/.cache/last_dir)
-	echo "Changing directory to ${lastdir}"
-	builtin cd $lastdir
-}
+PS1='\e[1;34m  \e[00m \e[1;32m \w\e[00m \e[2;40m\e[2;37m$(__git_ps1 "    %s ")\e[00m\n   '
 
 # C++ compiler
 function buggo {
@@ -52,3 +38,9 @@ function buggo {
 }
 
 
+# NPM configuration
+NPM_PACKAGES="${HOME}/.npm-packages/"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

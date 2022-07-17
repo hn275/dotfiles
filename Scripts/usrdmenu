@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+dmenu_run \
+	-m 0 			\
+	-p 'cmd'		\
+	-fn 'JetBrains Mono'	\
+	-nb \#0D1826		\
+	-nf \#C5C8C6		\
+	-sb \#517C8C		\
+	-sf \#254559

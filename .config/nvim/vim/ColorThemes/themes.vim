@@ -10,7 +10,7 @@ endif
 set background=dark
 
 " --- One Dark ---
-colorscheme onedark
+" colorscheme onedark
  
 " --- Deepspace ---
 " colorscheme deep-space
@@ -18,10 +18,9 @@ colorscheme onedark
 
 " --- Gruvbox ---
 " " Contrast
-" let g:gruvbox_material_background = 'medium' " soft | medium | hard
-" let g:gruvbox_material_better_performace = 1 " better performace
-"  let g:airline_theme="base16_gruvbox_dark_hard" " setting airline theme
-" colorscheme gruvbox-material 
+let g:gruvbox_material_background = 'medium' " soft | medium | hard
+let g:gruvbox_material_better_performace = 1 " better performace
+colorscheme gruvbox-material 
 
 " --- Tokyo Night ---
 " colorscheme tokyonight

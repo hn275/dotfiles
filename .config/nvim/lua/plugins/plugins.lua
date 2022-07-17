@@ -47,7 +47,6 @@ return packer.startup(function(use)
 
     -- useins
     use "wbthomason/packer.nvim" -- have packer manages itself
-    -- use { "neoclide/coc.nvim", branch = "release" } -- coc
     use "Chiel92/vim-autoformat" -- Autoformat
     use "mattn/emmet-vim" -- emmet-vim for html tags
     use "jiangmiao/auto-pairs" -- auto pairs
@@ -61,6 +60,7 @@ return packer.startup(function(use)
     use "lukas-reineke/indent-blankline.nvim" -- blank indentation
     use {'akinsho/bufferline.nvim', tag = "v2.*" } -- bufferline
     use { "nvim-lualine/lualine.nvim", requires = { opt = true } } -- lua line
+    use "neovim/nvim-lspconfig"
 
     -- cmp stuff
     use 'hrsh7th/nvim-cmp'
@@ -87,8 +87,6 @@ return packer.startup(function(use)
     use "ap/vim-css-color"
 
     -- Snippets
-    -- use "SirVer/ultisnips"
-    -- use 'mlaursen/vim-react-snippets'
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
