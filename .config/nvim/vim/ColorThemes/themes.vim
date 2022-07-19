@@ -18,12 +18,12 @@ set background=dark
 
 " --- Gruvbox ---
 " " Contrast
-let g:gruvbox_material_background = 'medium' " soft | medium | hard
-let g:gruvbox_material_better_performace = 1 " better performace
-colorscheme gruvbox-material 
+" let g:gruvbox_material_background = 'medium' " soft | medium | hard
+" let g:gruvbox_material_better_performace = 1 " better performace
+" colorscheme gruvbox-material 
 
 " --- Tokyo Night ---
-" colorscheme tokyonight
+colorscheme tokyonight
 
 " --- Oceanic next ---
 " let g:oceanic_next_terminal_bold = 1

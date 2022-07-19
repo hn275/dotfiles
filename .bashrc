@@ -42,5 +42,11 @@ function buggo {
 NPM_PACKAGES="${HOME}/.npm-packages/"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
-
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# Lua language server 
+LUA_LSP="${HOME}/Repositories/lua-language-server/bin"
+export PATH="$PATH:$LUA_LSP"
+
+
+alias luamake=/home/haln/Repositories/lua-language-server/3rd/luamake/luamake

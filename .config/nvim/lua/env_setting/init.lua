@@ -24,6 +24,7 @@ local options = {
 	shiftwidth = 2, -- number of spaces indented
 	tabstop = 2, -- number of spaces tab key inserts
 	cursorline = true, -- highlighting current cursor lines
+	cursorcolumn = true, -- highlight current cursor column
 	number = true, -- line number
 	relativenumber = false, -- enable relative number
 	numberwidth = 3, -- set number column width

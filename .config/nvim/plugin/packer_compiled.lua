@@ -74,11 +74,6 @@ _G.packer_plugins = {
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  MatchTag = {
-    loaded = true,
-    path = "/home/haln/.local/share/nvim/site/pack/packer/start/MatchTag",
-    url = "https://github.com/gregsexton/MatchTag"
-  },
   ["auto-pairs"] = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/auto-pairs",
@@ -159,6 +154,16 @@ _G.packer_plugins = {
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-ts-autotag"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/nvim-ts-autotag",
+    url = "https://github.com/windwp/nvim-ts-autotag"
+  },
+  ["nvim-ts-context-commentstring"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
+    url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -189,6 +194,11 @@ _G.packer_plugins = {
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["react-nextjs-snippets"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/react-nextjs-snippets",
+    url = "https://github.com/avneesh0612/react-nextjs-snippets"
+  },
   ["space-vim-dark"] = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/space-vim-dark",
@@ -203,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/tmuxline.vim",
     url = "https://github.com/edkolev/tmuxline.vim"
+  },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
   },
   ["toggleterm.nvim"] = {
     loaded = true,

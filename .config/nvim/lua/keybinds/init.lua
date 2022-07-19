@@ -32,12 +32,11 @@ k("n", "<leader>8", ":lua require('bufferline').go_to_buffer(8, true)<CR>", opts
 k("n", "<leader>9", ":lua require('bufferline').go_to_buffer(9, true)<CR>", opts)
 
 -- TodoComment
--- The comments are TodoQuickFix, TodoLocList, and TodoTelescope
--- k("n", "tt", ":Todo", { noremap = true })
-
+-- The options are TodoQuickFix, TodoLocList, and TodoTelescope
+k("n", "<leader>ft", ":TodoTelescope<CR>", opts) -- mapping for TodoTelescope
 -- Telescope
-k("n", "ff", ":Telescope find_files<CR>", opts)
-k("n", "fg", ":Telescope live_grep<CR>", opts)
+k("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+k("n", "<leader>fg", ":Telescope live_grep<CR>", opts)
 
 
 -- Nvim treesitter 
