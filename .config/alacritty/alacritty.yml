@@ -1,12 +1,12 @@
 # Import colors
 import:
-  - ~/.config/alacritty/themes/nord.yaml
+  - ~/.config/alacritty/themes/one_dark.yaml
 
 # Window configurations
 window:
-  padding:
-    x: 0
-    y: 0
+  # padding:
+  #   x: 10
+  #   y: 10
   decoration: none
   opacity: 1
   title: Terminal
@@ -23,14 +23,16 @@ scrolling:
 # Font
 font:
   normal:
-    family: JetBrains Mono
+    family: JetBrains Mono Nerd Font
   size: 9
 
 # Cursor
 cursor:
   style:
-    shape: Block
+    shape: Underline
     blinking: On
     blink_interval: 800
     thickness: 0.2
 
+key_bindings:
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
