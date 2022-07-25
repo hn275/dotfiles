@@ -7,6 +7,7 @@ require('lualine').setup {
     disabled_filetypes = {},
     always_divide_middle = true,
     globalstatus = false,
+    theme = "nord",
   },
   sections = {
     lualine_a = {'mode'},

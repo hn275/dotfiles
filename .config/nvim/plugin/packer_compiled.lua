@@ -134,6 +134,16 @@ _G.packer_plugins = {
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/home/haln/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/haln/.local/share/nvim/site/pack/packer/start/nvim-cmp",

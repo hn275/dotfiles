@@ -101,6 +101,8 @@ return packer.startup(function(use)
     use "tyrannicaltoucan/vim-deep-space"
     use "folke/tokyonight.nvim"
     use "mhartington/oceanic-next"
+    use "EdenEast/nightfox.nvim"
+    use "shaunsingh/nord.nvim"
 
     -- Automatically set up your configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then

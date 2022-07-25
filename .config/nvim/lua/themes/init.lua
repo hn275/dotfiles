@@ -11,7 +11,8 @@ set background=dark
 
 -- require("themes.deepspace")
 -- require("themes.gruvbox")
-require("themes.nightfox")
+-- require("themes.nightfox")
 -- require("themes.oceanicnext")
 -- require("themes.onedark")
 -- require("themes.tokyonight")
+require("themes.nord")
