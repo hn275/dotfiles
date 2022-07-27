@@ -14,4 +14,16 @@ end
 
 vim.cmd[[colorscheme nord]]
 
--- dont forget to set lualine theme to nord as well
+-- setting lualine color theme
+local lualine_status, lualine = pcall(require, "lualine")
+if lualine_status then
+  lualine.setup({
+    options = {
+      theme = "nord"
+    }
+  })
+else
+  return
+end
+
+

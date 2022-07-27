@@ -6,13 +6,13 @@ require("toggleterm").setup{
 			return vim.o.columns * 0.4
 		end
 	end,
-	start_in_insert = false,
+	start_in_insert = true,
 	shade_terminals = true,
 	shadeing_factor = 1,
 	hide_numbers = true,
 	open_mapping = [[<c-\>]],
 	close_on_exit = true,
-	direction = 'float',
+	direction = 'float', -- "horizontal" | "veritcal" | "float"
 	float_opts = {
 		border = 'single'
 	}

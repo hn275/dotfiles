@@ -10,9 +10,12 @@ set background=dark
 
 
 -- require("themes.deepspace")
+-- require("themes.dracula")
+require("themes.everforest")
 -- require("themes.gruvbox")
+-- require("themes.nightfly")
 -- require("themes.nightfox")
+-- require("themes.nord")
 -- require("themes.oceanicnext")
 -- require("themes.onedark")
 -- require("themes.tokyonight")
-require("themes.nord")

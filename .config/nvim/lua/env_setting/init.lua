@@ -16,14 +16,14 @@ local options = {
 	splitright = true, -- new hsplit is forced to opened up to the right
 	swapfile = false, -- prevent creating swap files
 	termguicolors = true, -- set term gui colors
-	timeoutlen = 500, -- time to wait for a mapped sequence to reset
+	timeoutlen = 1000, -- time to wait for a mapped sequence to reset
 	undofile = true, -- persistent undo
 	updatetime = 300, -- faster completion (4000ms by default)
 	writebackup = false, -- if a file is being edited by another program, or was written by another program, wont be allowed to write
 	expandtab = true, -- expanding tab to spaces
 	shiftwidth = 2, -- number of spaces indented
 	tabstop = 2, -- number of spaces tab key inserts
-	cursorline = true, -- highlighting current cursor lines
+	cursorline = false, -- highlighting current cursor lines
 	cursorcolumn = false, -- highlight current cursor column
 	number = true, -- line number
 	relativenumber = true, -- enable relative number
@@ -44,4 +44,4 @@ end
 -- vim.cmd [[Tmuxline airline_insert]] -- setting tmux color to be the same as airline bar in insert mode
 vim.cmd [[set iskeyword+=-]] -- turn key-word into 1 word for `dw` instead of 2 (by default neovim reads words-like-this 3 words)
 
-vim.cmd [[autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */}]]
+vim.cmd [[ autocmd FileType javascript.jsx setlocal commentstring={/*\ %s\ */} ]]

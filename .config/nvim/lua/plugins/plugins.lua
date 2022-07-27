@@ -56,6 +56,8 @@ return packer.startup(function(use)
     use "nvim-telescope/telescope.nvim" -- telescope
     use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" } -- nvim treesitter
     use "folke/todo-comments.nvim" -- todo-comments
+    use "folke/trouble.nvim" -- trouble
+    use "folke/lsp-colors.nvim" -- lsp color correction
     use "lukas-reineke/indent-blankline.nvim" -- blank indentation
     use { "akinsho/bufferline.nvim", tag = "v2.*" } -- bufferline
     use { "nvim-lualine/lualine.nvim", requires = { opt = true } } -- lua line
@@ -103,6 +105,9 @@ return packer.startup(function(use)
     use "mhartington/oceanic-next"
     use "EdenEast/nightfox.nvim"
     use "shaunsingh/nord.nvim"
+    use "bluz71/vim-nightfly-guicolors"
+    use "sainnhe/everforest"
+    use 'Mofiqul/dracula.nvim'
 
     -- Automatically set up your configuration after cloning packer.nvim
     if PACKER_BOOTSTRAP then

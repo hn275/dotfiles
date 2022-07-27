@@ -7,7 +7,7 @@ bufferLine.setup {
     max_name_length = 15,
     max_prefix_length = 10,
     tab_size = 18,
-    diagnostics = 'coc',
+    diagnostics = 'nvim_lsp',
     diagnostics_update_in_insert = true,
     offsets = {
       {
