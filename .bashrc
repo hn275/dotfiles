@@ -16,7 +16,7 @@
 # 	Ps = 4  -> steady underline.
 # 	Ps = 5  -> blinking bar (xterm).
 # 	Ps = 6  -> steady bar (xterm).
-printf '\033[3 q'
+# printf '\033[3 q'
 
 # Alias
 alias ls='lsd --color=auto'
@@ -26,10 +26,11 @@ alias lla='ls -al'
 alias grep='grep --color=auto'
 alias g='git'
 alias nn='nvim'
+alias tm='tmux'
 
 # Cmd line prompt
 source ~/.git-prompt.sh
-PS1='\e[1;34m  \e[00m \e[1;32m \w\e[00m \e[2;40m\e[2;37m$(__git_ps1 "    %s ")\e[00m\n   '
+PS1='\e[1;34m  \e[00m \e[1;32m \w\e[00m \e[2;40m\e[2;37m$(__git_ps1 "    %s ")\e[00m\n ﬌ '
 
 # C++ compiler
 function buggo {
@@ -39,14 +40,15 @@ function buggo {
 
 
 # NPM configuration
-NPM_PACKAGES="${HOME}/.npm-packages/"
+NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # Lua language server 
-LUA_LSP="${HOME}/Repositories/lua-language-server/bin"
-export PATH="$PATH:$LUA_LSP"
-
-
-alias luamake=/home/haln/Repositories/lua-language-server/3rd/luamake/luamake
+LSP="${HOME}/.language-server-protocol"
+export PATH="${PATH}:${LSP}/lua-language-server/bin" # Lua
+export PATH="${PATH}:${LSP}/marksman/bin" # Markdown 
+# Ruby/Gem executables
+# My scripts
+export PATH="${PATH}:${HOME}/.local/bin"
