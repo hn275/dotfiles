@@ -1,0 +1,40 @@
+# Import colors
+import:
+  - ~/.config/alacritty/themes/nord.yaml
+
+# Window configurations
+window:
+  decoration: none
+  opacity: 0.95
+  title: Terminal
+  dynamic_title: true
+  class:
+    instance: Alacritty
+    general: Alacritty
+  gtk_theme_variant: dark
+  dimensions:
+    lines: 30
+    columns: 90
+
+scrolling:
+  history: 100000
+  multiplier: 2
+
+# Font
+font:
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  size: 11
+
+# Cursor
+cursor:
+  style:
+    shape: beam
+    blinking: On
+    blink_interval: 800
+    thickness: 0.2
+
+# Opening up a new instance in the same directory
+key_bindings:
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
