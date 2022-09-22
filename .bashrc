@@ -12,7 +12,11 @@ alias la='ls -a'
 alias lla='ls -al'
 alias grep='grep --color=auto'
 alias g='git'
-alias t='tmux'
+alias ga='git add'
+alias gst='git status'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias tm='tmux'
 
 # Cmd line prompt
 source ~/.git-prompt.sh
@@ -38,3 +42,4 @@ export PATH="${PATH}:${LSP}/marksman/bin" # Markdown
 # Ruby/Gem executables
 # My scripts
 export PATH="${PATH}:${HOME}/.local/bin"
+. "$HOME/.cargo/env"
