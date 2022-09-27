@@ -1,0 +1,9 @@
+set -g status-position bottom
+set -g status-justify left
+set -g status-interval 2
+set -g status-style "bg=$COLOR_MAIN"
+set -g status-left "#[bg=$COLOR_EDGE] #[fg=$COLOR_EDGE,bg=$COLOR_MAIN]"
+set -g status-right "#[fg=$COLOR_ACCENT,bg=$COLOR_MAIN]#(tmux-mem-cpu-load -g 5 -a 0 --interval 2) #[fg=$COLOR_MAIN,bg=$COLOR_ACCENT] %m/%d  %H:%M:%S #[fg=$COLOR_MAIN]#[bg=$COLOR_MAIN,fg=$COLOR_EDGE]#[bg=$COLOR_EDGE] "
+set -g status-right-length 100 
+setw -g window-status-current-format "#[fg=$COLOR_MAIN,bg=$COLOR_ACCENT] #W #[fg=$COLOR_ACCENT, bg=$COLOR_MAIN]" # current session
+setw -g window-status-format "#[fg=$COLOR_ACCENT bg=$COLOR_MAIN] #W"

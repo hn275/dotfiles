@@ -1,0 +1,21 @@
+# Statusline
+set -g status-position bottom
+set -g status-justify left
+set -g status-interval 2
+
+set -g status-bg $COLOR_MAIN
+set -g status-left ""
+
+set -g status-right "#[fg=$COLOR_ACCENT,bg=$COLOR_MAIN]#(tmux-mem-cpu-load -g 5 -a 0 --interval 2) #[fg=$COLOR_MAIN,bg=$COLOR_ACCENT] %m/%d %H:%M "
+set -g status-right-length 100 
+
+set -g pane-border-format ""
+set -g pane-border-lines single
+set -g pane-border-style "fg=$COLOR_EDGE"
+set -g pane-active-border-style "fg=$COLOR_ACCENT" 
+set -g pane-border-style "fg=$COLOR_MAIN"
+
+setw -g window-status-current-format "#[fg=${COLOR_MAIN},bg=${COLOR_ACCENT}] #W " 
+setw -g window-status-format "#[fg=${COLOR_ACCENT},bg=${COLOR_MAIN}] #W "
+
+set -g message-style "fg=$COLOR_ACCENT bg=$COLOR_MAIN"
