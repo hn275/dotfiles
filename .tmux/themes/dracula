@@ -1,0 +1,4 @@
+COLOR_MAIN="#282a36"
+COLOR_ACCENT="#bd93f9"
+
+source $HOME/.tmux/themes/_statusline
