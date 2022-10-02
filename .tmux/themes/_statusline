@@ -1,5 +1,5 @@
 # Statusline
-set -g status-position bottom
+set -g status-position top
 set -g status-justify left
 set -g status-interval 2
 
