@@ -1,0 +1,9 @@
+#!/usr/local/bin
+
+SESSIONS=$(ls  ~/.nvim/sessions/)
+
+SEL=$(echo $SESSIONS |  tr " " "\n" | fzf)
+
+SEL="~/.nvim/sessions/${SEL}"
+
+nvim -S $SEL
