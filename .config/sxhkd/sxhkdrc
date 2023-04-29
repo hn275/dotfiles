@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	alacritty
+	kitty
 
 # program launcher
 super + d
@@ -15,8 +15,8 @@ super + d
 super + alt + r
 	pkill -USR1 -x sxhkd
 
-Menu
-	rofi -show
+# Menu
+# 	rofi -show
 #
 # bspwm hotkeys
 
@@ -35,24 +35,13 @@ XF86AudioPlay
 	playerctl --player=spotify play-pause
 #=================AUDIO CONTROL ENDS=======================
 
-# Power control
-super + Pause
-	usrpower
-Pause
-	usrlock
-
 # quit/restart bspwm
 super + shift + {q,r}
 	bspc {quit,wm -r}
 
-
 # close and kill
-super + Escape
+super + q
 	bspc node -c
-
-# alternate between the tiled and monocle layout
-super + m
-	bspc desktop -l next
 
 # send the newest marked node to the newest preselected node
 super + y
@@ -67,8 +56,8 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t ~{tiled,pseudo_tiled,floating,fullscreen}
+super + {t,s,f,m}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -87,8 +76,11 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous window in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local.!hidden.window
+super + n
+	bspc node -f next.local.!hidden.window
+
+super + p
+	bspc node -f prev.local.!hidden.window
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
