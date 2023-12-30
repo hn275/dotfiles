@@ -1,0 +1,12 @@
+import = [
+    "/home/haln/.config/alacritty/themes/moonlight_ii_vscode.toml",
+    "/home/haln/.config/alacritty/font.toml",
+]
+
+[scrolling]
+history = 100000
+multiplier = 2
+
+[window.dimensions]
+columns = 90
+lines = 30
