@@ -21,7 +21,7 @@ set -x MASON_PATH $HOME/.local/share/nvim/mason
 set -x PATH $PATH $MASON_PATH/bin
 
 function edit
-    cd ($HOME/repos/scripts/bin/jumpto)
+    cd ($HOME/Repositories/scripts/_fzf_files.sh)
     pwd
 end
 
