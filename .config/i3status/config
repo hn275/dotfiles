@@ -3,13 +3,7 @@ general {
         interval = 3
 }
 
-order += "memory"
-order += "load"
-order += "disk /"
 order += "wireless _first_"
-order += "ethernet _first_"
-order += "battery all"
-order += "tztime local"
 
 
 wireless _first_ {
@@ -20,26 +14,4 @@ wireless _first_ {
 ethernet _first_ {
         format_up = "ETH: %ip (%speed)"
         format_down = "ETH: down"
-}
-
-battery all {
-        format = "%status %percentage %remaining"
-}
-
-disk "/" {
-        format = "SSD %avail"
-}
-
-load {
-        format = "LD %1min"
-}
-
-memory {
-        format = "MEM %used"
-        threshold_degraded = "1G"
-        format_degraded = "MEMORY < %available"
-}
-
-tztime local {
-        format = "%Y-%m-%d %H:%M"
 }
