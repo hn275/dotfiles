@@ -3,7 +3,8 @@
 echo "Installing dependencies"
 sudo pacman -Sy i3-wm libpulse brightnessctl \
     nitrogen keyd make \
-    fish zsh alacritty neovim tmux
+    fish zsh alacritty neovim tmux \
+    slop shotgun \ # screenshotting dependencies
 
 echo "Coping config files"
 cp -r .config/* $HOME/.config/
