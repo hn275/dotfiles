@@ -1,25 +1,29 @@
 #!/usr/bin/bash
 
-[ -z "$1" ] && exit 1
+fail() {
+    echo "$msg"
+    notify-send -a "App Launcher" "$msg"
+    exit 1
+}
+
+[ -z "$1" ] && fail
 
 msg="Invalid app \"$1\". Acceptable arguments:
-- todoist | todo
 - brightspace | bs
-- calendar | cal"
+- calendar | cal
+- mail"
 
 case $1 in
-    todo|todoist)
-        xdg-open "https://app.todoist.com/app/today"
-        ;;
     brightspace|bs)
         xdg-open "https://bright.uvic.ca/d2l/home"
         ;;
     calendar|cal)
-        xdg-open "https://calendar.google.com/calendar"
+        xdg-open "https://calendar.proton.me/"
+        ;;
+    mail)
+        xdg-open "https://mail.proton.me/"
         ;;
     *)
-        echo "$msg"
-        notify-send -a "App Launcher" "$msg"
-        exit 1
+        fail
         ;;
 esac
