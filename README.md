@@ -1,3 +1,3 @@
-# Dotfiles
-`main` branch only contains some basic dot config files, for device specific, check other branches
+# Dotfile
 
+run `sh ./install.sh` to install some dependencies and links the files in place
