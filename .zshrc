@@ -7,10 +7,10 @@ HISTSIZE=1000
 SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
 
-alias ls="lsd"
-alias ll="lsd -l"
-alias lal="lsd -la"
-alias la="lsd -a"
+alias ls="ls --color=auto"
+alias ll="ls -l"
+alias lal="ls -la"
+alias la="ls -a"
 alias g="git"
 alias tm="tmux"
 
@@ -52,12 +52,12 @@ function goto() {
     [[ -z $dir ]] || cd "${dir}"
 }
 
-eval "$(fnm env --use-on-cd)"
+# eval "$(fnm env --use-on-cd)"
 
 # console theme
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(oh-my-posh init zsh --config $HOME/Repositories/oh-my-posh/themes/emodipt-extend.omp.json)"
+eval "$(oh-my-posh init zsh --config $HOME/Repositories/oh-my-posh/themes/bubblesextra.json)"
 
 
 # bun
