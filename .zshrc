@@ -57,7 +57,7 @@ function goto() {
 # console theme
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(oh-my-posh init zsh --config $HOME/Repositories/oh-my-posh/themes/bubblesextra.json)"
+eval "$(oh-my-posh init zsh --config $HOME/Repositories/oh-my-posh/themes/honukai.json)"
 
 
 # bun
