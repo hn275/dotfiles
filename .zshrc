@@ -12,7 +12,6 @@ alias ll="ls -l"
 alias lal="ls -la"
 alias la="ls -a"
 alias g="git"
-alias tm="tmux"
 
 # paths
 export EDITOR="nvim"
@@ -65,3 +64,7 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 # bun completions
 [ -s "/home/haln/.bun/_bun" ] && source "/home/haln/.bun/_bun"
+
+tm() {
+    tmux $@; exit
+}

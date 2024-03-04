@@ -165,9 +165,13 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-            status_command $HOME/.config/i3status/scripts/i3.sh
+    status_command $HOME/.config/i3status/init.sh
+    position top
 }
 
+workspace_layout tabbed
+title_align center
+smart_borders on
 
 focus_follows_mouse no
 default_border pixel 2
