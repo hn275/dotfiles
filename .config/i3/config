@@ -55,6 +55,9 @@ tiling_drag modifier titlebar
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# screen shot
+bindsym Print exec /home/haln/Repositories/dotfiles/scripts/screenshot/screenshot.sh
+
 # kill focused window
 bindsym $mod+q kill
 
