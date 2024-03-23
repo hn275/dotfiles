@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 9
+# font Ubuntu 10 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -47,10 +47,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -d intel_backli
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -173,13 +169,13 @@ bar {
     position top
 }
 
-workspace_layout tabbed
-title_align right
+# workspace_layout tabbed
+title_align center
 smart_borders on
 
 focus_follows_mouse no
-default_border pixel 2
-default_floating_border pixel 0
+default_border pixel 1
+default_floating_border pixel 1
 
 # wallpaper
 exec --no-startup-id nitrogen --restore
