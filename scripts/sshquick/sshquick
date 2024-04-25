@@ -9,4 +9,4 @@ Make sure this file exists and the content is of the format
     exit 1
 fi
 SSH_ADDR=$(cat $FILE_PATH | fzf | awk '{ print $1 }')
-[ -z "${SSH_ADDR}" ] || ssh ${SSH_ADDR}
+[ -z "${SSH_ADDR}" ] || alacritty -T "ssh://${SSH_ADDR}" -e ssh ${SSH_ADDR} &
