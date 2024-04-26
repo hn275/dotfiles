@@ -9,4 +9,20 @@ Make sure this file exists and the content is of the format
     exit 1
 fi
 SSH_ADDR=$(cat $FILE_PATH | fzf | awk '{ print $1 }')
-[ -z "${SSH_ADDR}" ] || alacritty -T "ssh://${SSH_ADDR}" -e ssh ${SSH_ADDR} &
+echo $SSH_ADDR
+[ -z "$SSH_ADDR" ] && exit
+while getopts 'n' OPTION; do
+    case "$OPTION" in
+        n)
+            alacritty -T "ssh://${SSH_ADDR}" -e ssh ${SSH_ADDR} &
+            exit
+            ;;
+        *)
+            echo "Invalid flag, `-n` to ssh in a new terminal window"
+            exit
+            ;;
+    esac
+done
+
+
+if [ $OPTIND -eq 1 ]; then ssh $SSH_ADDR; fi
