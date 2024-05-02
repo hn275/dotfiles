@@ -5,7 +5,7 @@ SELECTED=$(slop -f "-i %i -g %g")
 name=$1
 [[ -z $name ]] && name="screenshot"
 
-SCREENSHOT_PATH="$HOME/Pictures/screenshots/$name.png"
+SCREENSHOT_PATH="$HOME/Pictures/Screenshots/$name.png"
 if [[ -z $SELECTED ]]; then
     exit 0
 fi
