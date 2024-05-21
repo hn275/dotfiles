@@ -48,7 +48,8 @@ function goto() {
             --exclude .bun \
             | fzf
     )
-    [[ -z $dir ]] || cd "${dir}"
+
+    [[ -z $dir ]] || cd $dir
 }
 
 # eval "$(fnm env --use-on-cd)"
@@ -68,3 +69,8 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 tm() {
     tmux $@; exit
 }
+
+# snapd
+export PATH="${PATH}:/var/lib/snapd/snap/bin"
+
+alias ssh-ece="sshpass -f /home/haln/.ssh-ece-pass.txt ssh -X halnguyen@ugls.ece.uvic.ca"
