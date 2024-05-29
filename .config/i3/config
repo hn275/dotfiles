@@ -181,3 +181,4 @@ default_floating_border pixel 1
 # wallpaper
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id redshift-gtk
+exec --no-startup-id blueberry-tray
