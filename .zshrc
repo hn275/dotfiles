@@ -74,3 +74,7 @@ tm() {
 export PATH="${PATH}:/var/lib/snapd/snap/bin"
 
 alias ssh-ece="sshpass -f /home/haln/.ssh-ece-pass.txt ssh -X halnguyen@ugls.ece.uvic.ca"
+
+function cmakeinit() {
+    cmake -H. -Bbuild -DCMAKE_EXPORT_COMPILE_COMMANDS=ON $@
+}
