@@ -12,6 +12,7 @@ alias ll="ls -l"
 alias lal="ls -la"
 alias la="ls -a"
 alias g="git"
+alias tm="tmux"
 
 # paths
 export EDITOR="nvim"
@@ -25,56 +26,52 @@ export GOPATH="${HOME}/go"
 export PATH="${PATH}:${GOPATH}/bin"
 
 # rust path
-export PATH="/home/haln/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin:/home/haln/go/go/bin:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin:/home/haln/go/go/bin":"/home/haln/go/bin"
+export PATH="${HOME}/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin:/home/haln/go/go/bin:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin:/home/haln/go/go/bin":"/home/haln/go/bin"
 
 # fly.io path
-export FLYCTL_INSTALL="/home/haln/.fly"
+export FLYCTL_INSTALL="${HOME}/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
-
-# shell
-function goto() {
-    dir=$(fd . $HOME --type directory --hidden --absolute-path \
-            --exclude node_modules \
-            --exclude .git \
-            --exclude .cache \
-            --exclude .npm \
-            --exclude go/pkg \
-            --exclude .cargo \
-            --exclude .rustup \
-            --exclude .local/share \
-            --exclude .local/share \
-            --exclude .mozilla \
-            --exclude .config/chromium \
-            --exclude .bun \
-            | fzf
-    )
-
-    [[ -z $dir ]] || cd $dir
-}
-
-# eval "$(fnm env --use-on-cd)"
-
-# console theme
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(oh-my-posh init zsh --config $HOME/Repositories/oh-my-posh/themes/honukai.json)"
-
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-# bun completions
-[ -s "/home/haln/.bun/_bun" ] && source "/home/haln/.bun/_bun"
-
-tm() {
-    tmux $@; exit
-}
 
 # snapd
 export PATH="${PATH}:/var/lib/snapd/snap/bin"
 
-alias ssh-ece="sshpass -f /home/haln/.ssh-ece-pass.txt ssh -X halnguyen@ugls.ece.uvic.ca"
-
-function cmakeinit() {
-    cmake -H. -Bbuild -DCMAKE_EXPORT_COMPILE_COMMANDS=ON $@
+# shell
+function dirquery() {
+    fd . $HOME --type directory --hidden --absolute-path \
+        --exclude node_modules \
+        --exclude .git \
+        --exclude .cache \
+        --exclude .npm \
+        --exclude go/pkg \
+        --exclude .cargo \
+        --exclude .config \
+        --exclude .rustup \
+        --exclude .local/share \
+        --exclude .local/share \
+        --exclude .mozilla \
+        --exclude .config/chromium \
+        --exclude .bun \
+        | fzf
 }
+
+function goto() {
+    dir=$(dirquery)
+    [[ -z $dir ]] && exit 0
+    cd $dir
+    [[ -z $TMUX ]] && tmux
+}
+
+
+export SPACESHIP_CONFIG="$HOME/.config/spaceship.zsh"
+
+z() {
+    zeditor $(dirquery)
+}
+
+# theme spaceship
+source "${HOME}/.zsh/spaceship/spaceship.zsh"
+# source "${HOME}/.zsh/spaceship-vi-mode/spaceship-vi-mode.plugin.zsh"
+
+# zsh plugins
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
