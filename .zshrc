@@ -61,17 +61,14 @@ function goto() {
     [[ -z $TMUX ]] && tmux
 }
 
-
-export SPACESHIP_CONFIG="$HOME/.config/spaceship.zsh"
-
 z() {
     zeditor $(dirquery)
 }
 
-# theme spaceship
-source "${HOME}/.zsh/spaceship/spaceship.zsh"
-# source "${HOME}/.zsh/spaceship-vi-mode/spaceship-vi-mode.plugin.zsh"
-
 # zsh plugins
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# theme
+zsh_theme="/usr/share/oh-my-posh/themes/onehalf.minimal.omp.json"
+eval "$(oh-my-posh init zsh --config ${zsh_theme})"

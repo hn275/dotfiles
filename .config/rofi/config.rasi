@@ -12,8 +12,6 @@ configuration {
     }
 }
 
-@theme "/home/haln/.local/share/rofi/themes/squared-nord.rasi"
-
 window {
     children: [mode-switcher, mainbox];
 }
