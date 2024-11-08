@@ -56,9 +56,7 @@ function dirquery() {
 
 function goto() {
     dir=$(dirquery)
-    [[ -z $dir ]] && exit 0
-    cd $dir
-    [[ -z $TMUX ]] && tmux
+    [[ -z $dir ]] || cd $dir
 }
 
 z() {
@@ -72,3 +70,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # theme
 zsh_theme="/usr/share/oh-my-posh/themes/onehalf.minimal.omp.json"
 eval "$(oh-my-posh init zsh --config ${zsh_theme})"
+alias dockersh="docker exec -it"
