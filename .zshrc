@@ -35,7 +35,15 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 # snapd
 export PATH="${PATH}:/var/lib/snapd/snap/bin"
 
-# shell
+# zsh plugins
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# theme
+zsh_theme="/usr/share/oh-my-posh/themes/onehalf.minimal.omp.json"
+eval "$(oh-my-posh init zsh --config ${zsh_theme})"
+
+# shell functions
 function dirquery() {
     fd . $HOME --type directory --hidden --absolute-path \
         --exclude node_modules \
@@ -59,15 +67,6 @@ function goto() {
     [[ -z $dir ]] || cd $dir
 }
 
-z() {
-    zeditor $(dirquery)
+function clonemyrepo() {
+	git clone git@github.com:hn275/$@.git
 }
-
-# zsh plugins
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# theme
-zsh_theme="/usr/share/oh-my-posh/themes/onehalf.minimal.omp.json"
-eval "$(oh-my-posh init zsh --config ${zsh_theme})"
-alias dockersh="docker exec -it"
