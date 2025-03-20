@@ -1,0 +1,12 @@
+#!/usr/bin/zsh
+
+updatecmd="paru -Syyu --noconfirm && notify-send 'system update done' && exit"
+
+if [[ -z "$TMUX" ]]; then
+	tmux new-session $updatecmd
+else
+	echo "Detach the tmux session and run this again."
+	exit 1
+fi
+
+# tmux new-session ''
