@@ -7,9 +7,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
 
-alias ls="ls --color=auto"
-alias ll="ls -l"
-alias lal="ls -la"
+alias ls="ls --color=auto -h"
+alias ll="ls -l -h"
+alias lal="ls -lah"
 alias la="ls -a"
 alias g="git"
 alias tm="tmux"
@@ -67,6 +67,8 @@ function goto() {
     [[ -z $dir ]] || cd $dir
 }
 
-function clonemyrepo() {
-	git clone git@github.com:hn275/$@.git
-}
+
+# zsh plugins
+source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval "$(starship init zsh)"
