@@ -38,10 +38,7 @@ export PATH="${PATH}:/var/lib/snapd/snap/bin"
 # zsh plugins
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# theme
-zsh_theme="/usr/share/oh-my-posh/themes/onehalf.minimal.omp.json"
-eval "$(oh-my-posh init zsh --config ${zsh_theme})"
+eval "$(starship init zsh)"
 
 # shell functions
 function dirquery() {
@@ -66,9 +63,3 @@ function goto() {
     dir=$(dirquery)
     [[ -z $dir ]] || cd $dir
 }
-
-
-# zsh plugins
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval "$(starship init zsh)"
