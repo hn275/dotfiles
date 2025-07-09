@@ -20,13 +20,13 @@ export EDITOR="nvim"
 # node path
 export PATH="${PATH}:${HOME}/.npm-global/bin"
 export PATH="${PATH}:${HOME}/.local/bin"
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --shell zsh)"
 
 # go path
-export GOPATH="${HOME}/go"
-export PATH="${PATH}:${GOPATH}/bin"
+export PATH="$PATH:/usr/local/go/bin:/home/haln/go/bin"
 
 # rust path
-export PATH="${HOME}/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin:/home/haln/go/go/bin:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin:/home/haln/go/go/bin":"/home/haln/go/bin"
+export PATH="${PATH}:${HOME}/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin:/home/haln/.npm-global/bin:/home/haln/.local/bin:/home/haln/repos/scripts/bin"
 
 # fly.io path
 export FLYCTL_INSTALL="${HOME}/.fly"
@@ -36,8 +36,8 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 export PATH="${PATH}:/var/lib/snapd/snap/bin"
 
 # zsh plugins
-source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh-vi-mode/zsh-vi-mode.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval "$(starship init zsh)"
 
 # shell functions

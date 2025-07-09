@@ -1,12 +1,27 @@
+[general]
 import = [
-    "/home/haln/.config/alacritty/themes/moonlight_ii_vscode.toml",
-    "/home/haln/.config/alacritty/font.toml",
+  "/home/haln/Repositories/dotfiles/.config/alacritty/themes/one_dark.toml",
 ]
 
 [scrolling]
 history = 100000
 multiplier = 2
 
+[window]
+decorations = "none"
+
 [window.dimensions]
-columns = 90
-lines = 30
+columns = 150
+lines = 38
+
+[window.position]
+x = 554
+y = 44
+
+[window.padding]
+x = 4
+y = 4
+
+[font]
+normal = { family = "MesloLGLDZ Nerd Font Mono", style = "Regular" }
+size = 11.5
