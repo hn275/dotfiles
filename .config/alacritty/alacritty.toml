@@ -8,14 +8,14 @@ history = 100000
 multiplier = 2
 
 [window]
-decorations = "none"
+decorations = "full"
 
 [window.dimensions]
-columns = 150
+columns = 130
 lines = 38
 
 [window.position]
-x = 554
+x = 54
 y = 44
 
 [window.padding]
@@ -23,5 +23,5 @@ x = 4
 y = 4
 
 [font]
-normal = { family = "MesloLGLDZ Nerd Font Mono", style = "Regular" }
-size = 11.5
+normal = { family = "MonaspiceAr Nerd Font Mono", style = "Regular" }
+size = 12.5
